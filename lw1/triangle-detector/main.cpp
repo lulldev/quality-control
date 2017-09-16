@@ -11,10 +11,10 @@ int main(int argc, char* argv[])
   }
   
   unsigned sideA, sideB, sideC;
-  string strSideA = argv[0];
-  string strSideB = argv[1];
-  string strSideC = argv[2];
-  
+  string strSideA = argv[1];
+  string strSideB = argv[2];
+  string strSideC = argv[3];
+
   if (isdigit(strSideA[0]) && isdigit(strSideB[0]) && isdigit(strSideC[0]))
   {
     try
