@@ -72,4 +72,11 @@ if [ $? != ${errCode} ]; then
     exit
 fi
 
+echo "[*] With big numbers"
+./$outputFileName 10000000 100000000000000000000 100000000000000000000000000000000
+if [ $? != ${errCode} ]; then
+    echo "[+] test failed!!\n"
+    exit
+fi
+
 echo "\n[DONE] All tests passed!"
