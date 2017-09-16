@@ -2,7 +2,39 @@
 
 using namespace std;
 
-int main() {
-  std::cout << "Test" << std::endl;
+int main(int argc, char* argv[]) 
+{
+  if (argc != 4) 
+  {
+    cout << "Invalid arguments count." << endl;
+    return -1;
+  }
+  
+  unsigned sideA, sideB, sideC;
+  string strSideA = argv[0];
+  string strSideB = argv[1];
+  string strSideC = argv[2];
+  
+  if (isdigit(strSideA[0]) && isdigit(strSideB[0]) && isdigit(strSideC[0]))
+  {
+    try
+    {
+      sideA = stoi(strSideA);
+      sideB = stoi(strSideB);
+      sideC = stoi(strSideC);
+      cout << "All right" << endl;
+    }
+    catch(...)
+    {
+      cout << "Invalid arguments types" << endl;
+      return -1;
+    }
+  }
+  else 
+  {
+    cout << "Invalid arguments types" << endl;
+    return -1;
+  }
+
   return 0;
 }
