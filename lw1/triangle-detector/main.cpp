@@ -2,6 +2,36 @@
 
 using namespace std;
 
+enum TRIANGLE_TYPES {
+  INVALID,
+  CONVENTIONAL, 
+  ISOSCELES, 
+  EQUILATERAL
+};
+
+TRIANGLE_TYPES GetTriangleType(unsigned sideA, unsigned sideB, unsigned sideC) 
+{
+  if ((sideA + sideB > sideC) & (sideA + sideC > sideB) & (sideB + sideC > sideA)) 
+  {
+    if ((sideA == sideB) && (sideB == sideC))
+    {
+      return EQUILATERAL;
+    }
+    else
+    {
+      if ((sideA == sideB) || (sideB == sideC))
+      {
+        return ISOSCELES;
+      }
+      else 
+      {
+        return CONVENTIONAL;
+      }
+    }
+  }
+  return INVALID;
+}
+
 int main(int argc, char* argv[]) 
 {
   if (argc != 4) 
@@ -22,7 +52,24 @@ int main(int argc, char* argv[])
       sideA = stoi(strSideA);
       sideB = stoi(strSideB);
       sideC = stoi(strSideC);
-      cout << "All right" << endl;
+      
+      string resultType("");
+      switch (GetTriangleType(sideA, sideB, sideC)) 
+      {
+        case INVALID:
+          resultType = "invalid";
+          break;
+        case CONVENTIONAL:
+          resultType = "conventional";
+          break;
+        case ISOSCELES:
+          resultType = "isosceles";
+          break;
+        case EQUILATERAL:
+          resultType = "equilateral";
+          break;   
+      }
+      cout << resultType << endl;
     }
     catch(...)
     {
@@ -35,6 +82,8 @@ int main(int argc, char* argv[])
     cout << "Invalid arguments types" << endl;
     return -1;
   }
+
+
 
   return 0;
 }
