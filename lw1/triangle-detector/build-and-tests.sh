@@ -32,7 +32,7 @@ fi
 
 echo "[*] With 3 valid argument"
 ./$outputFileName 2 3 3
-if [ $? != 0 ]; then
+if [ $? != 2 ]; then
     echo "[+] test failed!!\n"
     exit
 fi
@@ -79,4 +79,31 @@ if [ $? != ${errCode} ]; then
     exit
 fi
 
+echo "[*] Invalid triangle ./$outputFileName 0 2 3"
+./$outputFileName 0 2 3
+if [ $? != 0 ]; then
+    echo "[+] test failed!!\n"
+    exit
+fi
+
+echo "[*] Equilateral trianlge ./$outputFileName 5 5 5"
+./$outputFileName 5 5 5
+if [ $? != 3 ]; then
+    echo "[+] test failed!!\n"
+    exit
+fi
+
+echo "[*] Isosceles trianlge ./$outputFileName 2 2 3"
+./$outputFileName 2 2 3
+if [ $? != 2 ]; then
+    echo "[+] test failed!!\n"
+    exit
+fi
+
+echo "[*] Conventional (simple) trianlge ./$outputFileName 3 2 3"
+./$outputFileName 3 2 3
+if [ $? != 1 ]; then
+    echo "[+] test failed!!\n"
+    exit
+fi
 echo "\n[DONE] All tests passed!"

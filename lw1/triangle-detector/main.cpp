@@ -54,7 +54,8 @@ int main(int argc, char* argv[])
       sideC = stoi(strSideC);
       
       string resultType("");
-      switch (GetTriangleType(sideA, sideB, sideC)) 
+      TRIANGLE_TYPES triangleType = GetTriangleType(sideA, sideB, sideC);
+      switch (triangleType) 
       {
         case INVALID:
           resultType = "invalid";
@@ -70,6 +71,7 @@ int main(int argc, char* argv[])
           break;   
       }
       cout << resultType << endl;
+      return triangleType;
     }
     catch(...)
     {
@@ -82,8 +84,6 @@ int main(int argc, char* argv[])
     cout << "Invalid arguments types" << endl;
     return -1;
   }
-
-
 
   return 0;
 }
