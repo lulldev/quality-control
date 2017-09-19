@@ -1,5 +1,6 @@
 const request = require('request');
 const cheerio = require('cheerio');
+const validator = require('validator');
 const commandLineArgs = require('command-line-args');
 
 const optionDefinitions = [
@@ -12,6 +13,10 @@ if (!options.hasOwnProperty('url')) {
 }
 
 let targetUrl = options.url;
+if (!validator.isURL(targetUrl)) {
+  console.log('URL link is not valide');
+  process.exit(2);
+}
 
 // request({ uri: 'http://www.amazon.com/', method: 'GET', encoding: 'binary' },
 //   function (err, res, page) {

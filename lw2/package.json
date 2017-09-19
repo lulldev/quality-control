@@ -19,6 +19,7 @@
   "devDependencies": {
     "cheerio": "^1.0.0-rc.2",
     "command-line-args": "^4.0.7",
-    "request": "^2.82.0"
+    "request": "^2.82.0",
+    "validator": "^8.2.0"
   }
 }
