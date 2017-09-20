@@ -2,6 +2,7 @@ const request = require('request');
 const cheerio = require('cheerio');
 const validator = require('validator');
 const commandLineArgs = require('command-line-args');
+const fs = require('fs');
 
 const optionDefinitions = [
   { name: 'url', alias: 'U', type: String}
@@ -18,6 +19,7 @@ if (!validator.isURL(targetUrl)) {
   process.exit(2);
 }
 
+const fAllLinks = fs.createWriteStream('all-links.txt');
 request({ uri: targetUrl, method: 'GET', encoding: 'binary' },
   function (err, res, page) {
     const $ = cheerio.load(page);
@@ -25,7 +27,9 @@ request({ uri: targetUrl, method: 'GET', encoding: 'binary' },
     $(links).each(function(i, link){
       parsedLink = $(link).attr('href');
       if (validator.isURL(parsedLink)) {
-        console.log(parsedLink);
+        fAllLinks.write(`${parsedLink} status\n`);
       }
     });
   });
+
+// fAllLinks.end();
