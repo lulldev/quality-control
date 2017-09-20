@@ -20,6 +20,8 @@ if (!validator.isURL(targetUrl)) {
 }
 
 const fAllLinks = fs.createWriteStream('all-links.txt');
+const fBrokenLinks = fs.createWriteStream('broken-links.txt');
+
 request({ uri: targetUrl, method: 'GET', encoding: 'binary' },
   function (err, res, page) {
     const $ = cheerio.load(page);
