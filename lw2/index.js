@@ -21,17 +21,25 @@ if (!validator.isURL(targetUrl)) {
 
 const fAllLinks = fs.createWriteStream('all-links.txt');
 const fBrokenLinks = fs.createWriteStream('broken-links.txt');
+let testedLinks = [];
 
-request({ uri: targetUrl, method: 'GET', encoding: 'binary' },
-  function (err, res, page) {
-    const $ = cheerio.load(page);
-    let links = $('a');
-    $(links).each(function(i, link){
-      parsedLink = $(link).attr('href');
-      if (validator.isURL(parsedLink)) {
-        fAllLinks.write(`${parsedLink} status\n`);
+const parseAndTestLinks = (nextLink) => {
+  request({ uri: nextLink, method: 'GET', encoding: 'binary' },
+    function (err, res, page) {
+      if (res && res.statusCode == '200') {
+        const $ = cheerio.load(page);
+        let links = $('a');
+        $(links).each(function(i, link){
+          const parsedLink = $(link).attr('href');
+          if (parsedLink && validator.isURL(parsedLink) && testedLinks.indexOf(parsedLink) === -1) {
+            fAllLinks.write(`${parsedLink} status\n`);
+            testedLinks.push(parsedLink);
+            parseAndTestLinks(parsedLink);
+          }
+        });
       }
     });
-  });
+}; 
 
+parseAndTestLinks(targetUrl);
 // fAllLinks.end();
