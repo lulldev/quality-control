@@ -1,4 +1,5 @@
-http://yola.edu12.ru/index.php 200
+Всего ссылок: 0
+ Дата и время: 2017-09-20 09:55:44http://yola.edu12.ru/index.php 200
 http://yola.edu12.ru/index.php?e=page&c=news 200
 http://yola.edu12.ru/index.php?e=page&c=uo_ref 200
 http://yola.edu12.ru/index.php?e=page&c=uo_boss&id=5 200
@@ -49,6 +50,32 @@ http://yola.edu12.ru/index.php?e=page&c=anons 200
 http://yola.edu12.ru/index.php?e=page&c=nz_qya 200
 http://yola.edu12.ru/index.php?e=page&c=for_parents_inf&id=67 200
 http://yola.edu12.ru/index.php?e=page&c=year_ecol 200
+http://yola.edu12.ru/index.php?e=page&c=vosp_com_mvun 500
+http://yola.edu12.ru/index.php?e=page&c=vosp_dp_edu 500
+http://yola.edu12.ru/index.php?e=page&c=vosp_work_pr 500
+http://yola.edu12.ru/index.php?e=page&c=inf_mtd_gmo 500
+http://yola.edu12.ru/index.php?e=page&c=inf_mtd_mm 500
+http://yola.edu12.ru/index.php?e=page&c=inf_mtd_shmp 500
+http://yola.edu12.ru/index.php?e=page&c=proforient01 500
+http://yola.edu12.ru/index.php?e=page&c=sc_sh_sect 500
+http://yola.edu12.ru/index.php?e=page&c=sc_sh_law 500
+http://yola.edu12.ru/index.php?e=page&c=sc_sh_comzgp 500
+http://yola.edu12.ru/index.php?e=page&c=sc_sh_stpar 500
+http://yola.edu12.ru/index.php?e=page&c=sc_sh_sir&id=71 500
+http://yola.edu12.ru/index.php?e=page&c=sc_sh_eduorg 500
+http://yola.edu12.ru/index.php?e=page&c=oochld 500
+http://yola.edu12.ru/index.php?e=page&c=sc_sh_findm 500
+http://yola.edu12.ru/index.php?e=page&c=olymp_pup_rf 500
+http://yola.edu12.ru/index.php?e=page&c=dou_sup_inf 500
+http://yola.edu12.ru/index.php?e=page&c=anons 500
+http://yola.edu12.ru/index.php?e=page&c=nz_qya 500
+http://yola.edu12.ru/index.php?e=page&c=for_parents_inf&id=67 500
+http://yola.edu12.ru/index.php?e=page&c=year_ecol 500
+http://yola.edu12.ru/datas/files/page/99/file_77.docx 200
+http://yola.edu12.ru/datas/files/page/189/file_367.docx 200
+http://yola.edu12.ru/datas/files/page/189/file_390.docx 200
+http://yola.edu12.ru/datas/files/page/189/file_368.doc 200
+http://yola.edu12.ru/datas/files/page/232/file_484.xls 200
 http://yola.edu12.ru/datas/files/page/194/file_501.docx 200
 http://yola.edu12.ru/datas/files/page/194/file_389.pdf 200
 http://yola.edu12.ru/datas/files/page/194/file_405.doc 200
@@ -58,9 +85,4 @@ http://yola.edu12.ru/datas/files/page/194/file_408.doc 200
 http://yola.edu12.ru/datas/files/page/194/file_409.doc 200
 http://yola.edu12.ru/datas/files/page/194/file_410.doc 200
 http://yola.edu12.ru/datas/files/page/194/file_411.doc 200
-http://yola.edu12.ru/datas/files/page/232/file_484.xls 200
 http://yola.edu12.ru/datas/files/page/44/file_85.docx 200
-http://yola.edu12.ru/datas/files/page/189/file_367.docx 200
-http://yola.edu12.ru/datas/files/page/189/file_390.docx 200
-http://yola.edu12.ru/datas/files/page/189/file_368.doc 200
-http://yola.edu12.ru/datas/files/page/99/file_77.docx 200
