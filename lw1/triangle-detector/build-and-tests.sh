@@ -5,6 +5,10 @@ errCode=255
 clear
 echo "Compile program..."
 g++ main.cpp -o $buildPath/$outputFileName
+if [ $? != 0 ]; then
+    echo "[!] Compile error!\n"
+    exit
+fi
 cd ${buildPath}
 
 echo "Testing start ($buildPath/$outputFileName)\n"
@@ -30,8 +34,15 @@ if [ $? != ${errCode} ]; then
     exit
 fi
 
-echo "[*] With 3 valid argument"
+echo "[*] With 3 valid argument (integers)"
 ./$outputFileName 2 3 3
+if [ $? != 2 ]; then
+    echo "[+] test failed!!\n"
+    exit
+fi
+
+echo "[*] With 3 valid argument (float)"
+./$outputFileName 2.23 3.1 3.04
 if [ $? != 2 ]; then
     echo "[+] test failed!!\n"
     exit
@@ -73,7 +84,7 @@ if [ $? != ${errCode} ]; then
 fi
 
 echo "[*] With big numbers"
-./$outputFileName 10000000 100000000000000000000 100000000000000000000000000000000
+./$outputFileName 10000000 100000000000000000000 1000000000000000000000000000000000000000000000000000000000000000000000000
 if [ $? != ${errCode} ]; then
     echo "[+] test failed!!\n"
     exit

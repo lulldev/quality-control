@@ -40,7 +40,7 @@ int main(int argc, char* argv[])
     return -1;
   }
   
-  unsigned sideA, sideB, sideC;
+  float sideA, sideB, sideC;
   string strSideA = argv[1];
   string strSideB = argv[2];
   string strSideC = argv[3];
@@ -49,10 +49,9 @@ int main(int argc, char* argv[])
   {
     try
     {
-      sideA = stoi(strSideA);
-      sideB = stoi(strSideB);
-      sideC = stoi(strSideC);
-      
+      sideA = stof(strSideA);
+      sideB = stof(strSideB);
+      sideC = stof(strSideC);
       string resultType("");
       TRIANGLE_TYPES triangleType = GetTriangleType(sideA, sideB, sideC);
       switch (triangleType) 
