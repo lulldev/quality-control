@@ -19,11 +19,11 @@ TRIANGLE_TYPES GetTriangleType(unsigned sideA, unsigned sideB, unsigned sideC)
     }
     else
     {
-      if ((sideA == sideB) || (sideB == sideC))
+      if ((sideA == sideB) || (sideB == sideC) || (sideA == sideC))
       {
         return ISOSCELES;
       }
-      else 
+      else if ((sideA != sideB) && (sideB != sideC) && (sideC != sideA))
       {
         return CONVENTIONAL;
       }

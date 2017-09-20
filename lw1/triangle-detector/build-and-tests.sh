@@ -111,8 +111,8 @@ if [ $? != 2 ]; then
     exit
 fi
 
-echo "[*] Conventional (simple) trianlge ./$outputFileName 3 2 3"
-./$outputFileName 3 2 3
+echo "[*] Conventional (simple) trianlge ./$outputFileName 3 2 4"
+./$outputFileName 3 2 4
 if [ $? != 1 ]; then
     echo "[+] test failed!!\n"
     exit
