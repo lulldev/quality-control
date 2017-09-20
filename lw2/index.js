@@ -52,4 +52,3 @@ const parseAndTestLinks = (nextLink) => {
 }; 
 
 parseAndTestLinks(targetUrl);
-// fAllLinks.end();
