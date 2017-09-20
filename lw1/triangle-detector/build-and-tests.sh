@@ -49,8 +49,8 @@ if [ $? != 2 ]; then
 fi
 
 echo "[*] With 4 valid argument"
-./$outputFileName 2 3 3
-if [ $? = ${errCode} ]; then
+./$outputFileName 2 3 3 4
+if [ $? != ${errCode} ]; then
     echo "[+] test failed!!\n"
     exit
 fi

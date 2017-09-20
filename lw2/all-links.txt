@@ -49,10 +49,6 @@ http://yola.edu12.ru/index.php?e=page&c=anons 200
 http://yola.edu12.ru/index.php?e=page&c=nz_qya 200
 http://yola.edu12.ru/index.php?e=page&c=for_parents_inf&id=67 200
 http://yola.edu12.ru/index.php?e=page&c=year_ecol 200
-http://yola.edu12.ru/datas/files/page/44/file_85.docx 200
-http://yola.edu12.ru/datas/files/page/189/file_367.docx 200
-http://yola.edu12.ru/datas/files/page/189/file_390.docx 200
-http://yola.edu12.ru/datas/files/page/189/file_368.doc 200
 http://yola.edu12.ru/datas/files/page/194/file_501.docx 200
 http://yola.edu12.ru/datas/files/page/194/file_389.pdf 200
 http://yola.edu12.ru/datas/files/page/194/file_405.doc 200
@@ -63,4 +59,8 @@ http://yola.edu12.ru/datas/files/page/194/file_409.doc 200
 http://yola.edu12.ru/datas/files/page/194/file_410.doc 200
 http://yola.edu12.ru/datas/files/page/194/file_411.doc 200
 http://yola.edu12.ru/datas/files/page/232/file_484.xls 200
+http://yola.edu12.ru/datas/files/page/44/file_85.docx 200
+http://yola.edu12.ru/datas/files/page/189/file_367.docx 200
+http://yola.edu12.ru/datas/files/page/189/file_390.docx 200
+http://yola.edu12.ru/datas/files/page/189/file_368.doc 200
 http://yola.edu12.ru/datas/files/page/99/file_77.docx 200

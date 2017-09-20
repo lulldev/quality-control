@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
 {
   if (argc != 4) 
   {
-    cout << "Invalid arguments count." << endl;
+    cout << "Введено неверное количество аргументов. (требуется: 3)" << endl;
     return -1;
   }
   
@@ -74,15 +74,15 @@ int main(int argc, char* argv[])
     }
     catch(...)
     {
-      cout << "Invalid arguments types" << endl;
+      cout << "Неверные аргументы сторон треугольника" << endl;
       return -1;
     }
   }
   else 
   {
-    cout << "Invalid arguments types" << endl;
+    cout << "Неверные аргументы сторон треугольника" << endl;
     return -1;
   }
 
-  return 0;
+  return -1;
 }
