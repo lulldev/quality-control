@@ -31,12 +31,22 @@ const parseAndTestLinks = (nextLink) => {
         let links = $('a');
         $(links).each(function(i, link){
           const parsedLink = $(link).attr('href');
-          if (parsedLink && validator.isURL(parsedLink) && testedLinks.indexOf(parsedLink) === -1) {
-            fAllLinks.write(`${parsedLink} status\n`);
+          if (parsedLink && validator.isURL(parsedLink) && testedLinks.indexOf(parsedLink) === -1 &&
+              parsedLink.indexOf(targetUrl) > -1) {
+            fAllLinks.write(`${parsedLink} ${res.statusCode}\n`);
             testedLinks.push(parsedLink);
             parseAndTestLinks(parsedLink);
           }
         });
+      } else {
+        let code;
+        if (typeof res !== 'object') {
+          code = '500';
+        } else {
+          code = res.statusCode;
+        }
+        fBrokenLinks.write(`${nextLink} ${code}\n`);
+        testedLinks.push(nextLink);
       }
     });
 }; 
