@@ -19,7 +19,7 @@ function extractHostname(url) {
 
 
 const optionDefinitions = [
-  { name: 'url', alias: 'U', type: String }
+  { name: 'url', alias: 'u', type: String }
 ]
 const options = commandLineArgs(optionDefinitions);
 if (!options.hasOwnProperty('url')) {
@@ -69,14 +69,14 @@ const parseAndTestLinks = (nextLink) => {
       testedLinks.push(nextLink);
     }
   });
-};
+}; 
 
 parseAndTestLinks(targetUrl);
 
-// todo: async output
-const datetime = new Date().toISOString().
-  replace(/T/, ' ').
-  replace(/\..+/, '');
-
-fAllLinks.write(`Всего ссылок: ${allLinksCounter}\n Дата и время: ${datetime}`);
-fBrokenLinks.write(`Всего ссылок: ${brokenLinksCounter}\n Дата и время: ${datetime}`);
+process.on('exit', (code) => {
+  const datetime = new Date().toISOString().
+    replace(/T/, ' ').
+    replace(/\..+/, '');
+  fAllLinks.write(`Всего ссылок: ${allLinksCounter}\nДата и время: ${datetime}`);
+  fBrokenLinks.write(`Всего ссылок: ${brokenLinksCounter}\nДата и время: ${datetime}`);
+});
