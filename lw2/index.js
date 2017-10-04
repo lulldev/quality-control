@@ -17,7 +17,6 @@ function extractHostname(url) {
     return hostname;
 }
 
-
 const optionDefinitions = [
   { name: 'url', alias: 'u', type: String }
 ]
@@ -40,15 +39,31 @@ const fAllLinks = fs.createWriteStream('all-links.txt');
 const fBrokenLinks = fs.createWriteStream('broken-links.txt');
 let testedLinks = [];
 
+const validateLink = (parsedLink, targetDomain) => {
+  let validatedLink = { isValid: false, parsedLink: parsedLink, validatedLink: '' };
+  
+  if (!parsedLink) return validatedLink;
+  
+  if (parsedLink[0] === '/') {
+    validatedLink.isValid = true;
+    validatedLink.validatedLink = `http://${targetDomain}`;
+  } 
+  else if (parsedLink[0] === 'h' && validator.isURL(parsedLink) && parsedLink.indexOf(targetDomain) > -1) {
+    validatedLink.isValid = true;
+    validatedLink.validatedLink = validatedLink.parsedLink;
+  }
+  return validatedLink;
+};
+
 const parseAndTestLinks = (nextLink) => {
   request({ uri: nextLink, method: 'GET', encoding: 'binary' }, (err, res, page) => {
     if (res && res.statusCode == '200') {
       const $ = cheerio.load(page);
       let links = $('a');
       $(links).each(function (i, link) {
-        const parsedLink = $(link).attr('href');
-        if (parsedLink && validator.isURL(parsedLink) && testedLinks.indexOf(parsedLink) === -1 &&
-          parsedLink.indexOf(targetDomain) > -1) {
+        const parsedLink = $(link).attr('href');   
+        const validatedLink = validateLink(parsedLink, targetDomain)     
+        if (validatedLink.isValid && testedLinks.indexOf(parsedLink) === -1) {
           fAllLinks.write(`${parsedLink} ${res.statusCode}\n`);
           testedLinks.push(parsedLink);
           allLinksCounter++;
