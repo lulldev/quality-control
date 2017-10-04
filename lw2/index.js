@@ -4,7 +4,7 @@ const validator = require('validator');
 const commandLineArgs = require('command-line-args');
 const fs = require('fs');
 
-function extractHostname(url) {
+let extractHostname = (url) => {
     var hostname;
     if (url.indexOf("://") > -1) {
         hostname = url.split('/')[2];
