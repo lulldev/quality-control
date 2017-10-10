@@ -105,10 +105,14 @@ process.on('exit', (code) => {
     return allLinks;
   }, []);
 
-  const brk = allLinks.reduce((i, elem) => {
-    // todo
-  });
-  
+  let brokenLinksCount = allLinksClear.reduce((sum, linkData) => {
+    if (linkData.status !== 200) {
+      console.log(linkData);
+      sum++;
+    }
+    return sum;
+  }, 0);
+
   allLinksClear.forEach((linkData) => {
     if (linkData.status !== 200) {
       fs.appendFileSync(config.brokenLinksFilename, `${linkData.link} ${linkData.status}\n`);
@@ -120,5 +124,5 @@ process.on('exit', (code) => {
   const datetimeReportStr = `Время тестирования: ${datetime}`;
   
   fs.appendFileSync(config.allLinksFilename, `${datetimeReportStr}, Всего ссылок: ${allLinks.length}\n`);
-  fs.appendFileSync(config.brokenLinksFilename, `${datetimeReportStr}, Всего ссылок: \n`);
+  fs.appendFileSync(config.brokenLinksFilename, `${datetimeReportStr}, Всего ссылок: ${brokenLinksCount}\n`);
 });
