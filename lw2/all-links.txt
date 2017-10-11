@@ -1,20 +1,20 @@
-http://borodin-av.ru//site/bor7112/raspisanie-zanatij 200
+http://borodin-av.ru//site/bor7112/raspisanie-zanatij 503
 http://borodin-av.ru//site/bor7112/raspisanie-zanatij/2012-2013 503
-http://borodin-av.ru//site/bor7112/raspisanie-zanatij/2013-2014 503
+http://borodin-av.ru//site/bor7112/raspisanie-zanatij/2013-2014 200
 http://borodin-av.ru//site/bor7112/raspisanie-zanatij/2014-2015 403
-http://borodin-av.ru//site/bor7112/raspisanie-zanatij/2015-2016 503
+http://borodin-av.ru//site/bor7112/raspisanie-zanatij/2015-2016 403
 http://borodin-av.ru//site/bor7112/raspisanie-zanatij/2016-2017 200
-http://borodin-av.ru//site/bor7112/raspisanie-zanatij/2017-2018 403
-http://borodin-av.ru//site/bor7112/raznoe 200
-http://borodin-av.ru//site/bor7112/raznoe/kontaktnaa-informacia 403
-http://borodin-av.ru//site/bor7112/raznoe/moi-resursy 503
+http://borodin-av.ru//site/bor7112/raspisanie-zanatij/2017-2018 503
+http://borodin-av.ru//site/bor7112/raznoe 503
+http://borodin-av.ru//site/bor7112/raznoe/kontaktnaa-informacia 200
+http://borodin-av.ru//site/bor7112/raznoe/moi-resursy 403
 http://borodin-av.ru//site/bor7112/system/app/pages/recentChanges 503
 http://borodin-av.ru//site/bor7112/system/app/pages/sitemap/hierarchy 200
-http://borodin-av.ru//site/bor7112/ucebnyj-process 503
+http://borodin-av.ru//site/bor7112/ucebnyj-process 200
 http://borodin-av.ru//site/bor7112/ucebnyj-process/2012-2013 200
-http://borodin-av.ru//site/bor7112/ucebnyj-process/2013-2014 503
+http://borodin-av.ru//site/bor7112/ucebnyj-process/2013-2014 200
 http://borodin-av.ru//site/bor7112/ucebnyj-process/2014-2015 503
 http://borodin-av.ru//site/bor7112/ucebnyj-process/2015-2016 503
 http://borodin-av.ru//site/bor7112/ucebnyj-process/2016-2017 503
-http://borodin-av.ru//site/bor7112/ucebnyj-process/2017-2018 503
-Время тестирования: 2017-10-10 14:49:30, Всего ссылок: 38
+http://borodin-av.ru//site/bor7112/ucebnyj-process/2017-2018 200
+Время тестирования: 2017-10-11 04:56:38, Всего ссылок: 38

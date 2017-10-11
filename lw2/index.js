@@ -107,7 +107,6 @@ process.on('exit', (code) => {
 
   let brokenLinksCount = allLinksClear.reduce((sum, linkData) => {
     if (linkData.status !== 200) {
-      console.log(linkData);
       sum++;
     }
     return sum;
