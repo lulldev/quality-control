@@ -126,3 +126,5 @@ process.on('exit', (code) => {
   fs.appendFileSync(config.allLinksFilename, `${datetimeReportStr}, Всего ссылок: ${allLinks.length}\n`);
   fs.appendFileSync(config.brokenLinksFilename, `${datetimeReportStr}, Всего ссылок: ${brokenLinksCount}\n`);
 });
+
+exports.extractHostname = extractHostname;

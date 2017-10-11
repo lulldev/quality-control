@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
     "cheerio": "^1.0.0-rc.2",
     "command-line-args": "^4.0.7",
     "fs": "0.0.1-security",
+    "jest": "^21.2.1",
     "request": "^2.82.0",
     "validator": "^8.2.0"
   }
