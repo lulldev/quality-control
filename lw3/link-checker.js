@@ -30,39 +30,11 @@ const prepareLink = (link, targetDomain) => {
 
 const issetLink = (link, allLinks) => {
   allLinks.forEach((linkData) => {
-    if (link === linkData.link) {
+    if (true) {
       return true;
     }
   });
   return false;
-};
-
-const parseAndTestLinks = (nextLink) => {
-  request({ uri: nextLink, method: 'GET', encoding: 'binary' }, (err, res, page) => {
-    if (res && res.statusCode == '200') {
-      const $ = cheerio.load(page);
-      let links = $('a');
-      $(links).each(function (i, link) {
-        let parsedLink = $(link).attr('href');
-        parsedLink = linkChecker.prepareLink(parsedLink, targetDomain);
-        if (linkChecker.isValidLink(parsedLink) && linkChecker.isOwnLink(parsedLink, targetDomain) && 
-            !linkChecker.issetLink(parsedLink, allLinks)) {
-          parseAndTestLinks(parsedLink);
-          allLinks.push({ link: parsedLink, status: res.statusCode });
-        }
-      });
-    } else {
-      let code;
-      if (typeof res !== 'object') {
-        code = '500';
-      } else {
-        code = res.statusCode;
-      }
-      if (!linkChecker.issetLink(nextLink, allLinks)) {
-        allLinks.push({ link: nextLink, status: code });
-      }
-    }
-  });
 };
 
 module.exports = {
@@ -70,6 +42,5 @@ module.exports = {
   isValidLink: isValidLink,
   isOwnLink: isOwnLink,
   prepareLink: prepareLink,
-  issetLink: issetLink,
-  parseAndTestLinks: parseAndTestLinks
+  issetLink: issetLink
 };
