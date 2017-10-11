@@ -3,24 +3,12 @@ const cheerio = require('cheerio');
 const validator = require('validator');
 const commandLineArgs = require('command-line-args');
 const fs = require('fs');
+const linkChecker = require('./link-checker');
 
 const config = {
   allLinksFilename: 'all-links.txt',
   brokenLinksFilename: 'broken-links.txt',
 };
-
-let extractHostname = (url) => {
-  var hostname;
-  if (url.indexOf("://") > -1) {
-    hostname = url.split('/')[2];
-  }
-  else {
-    hostname = url.split('/')[0];
-  }
-  hostname = hostname.split(':')[0];
-  hostname = hostname.split('?')[0];
-  return hostname;
-}
 
 const optionDefinitions = [
   { name: 'url', alias: 'u', type: String }
@@ -32,37 +20,13 @@ if (!options.hasOwnProperty('url')) {
 }
 
 let targetUrl = options.url;
-let targetDomain = extractHostname(targetUrl);
+let targetDomain = linkChecker.extractHostname(targetUrl);
 if (!validator.isURL(targetUrl)) {
   console.log('URL ссылка указана неверно');
   process.exit(2);
 }
 
 let allLinks = [];
-
-const isValidLink = (link) => {
-  return (link.indexOf('javascript') === -1);
-};
-
-const isOwnLink = (link, targetDomain) => {
-  return (validator.isURL(link) && link.indexOf(targetDomain) > -1);
-};
-
-const prepareLink = (link, targetDomain) => {
-  if (!validator.isURL(link) || link.indexOf('http') !== 0) {
-    return `http://${targetDomain}/${link}`
-  }
-  return link;
-};
-
-const issetLink = (link, allLinks) => {
-  allLinks.forEach((linkData) => {
-    if (link === linkData.link) {
-      return true;
-    }
-  });
-  return false;
-};
 
 const parseAndTestLinks = (nextLink) => {
   request({ uri: nextLink, method: 'GET', encoding: 'binary' }, (err, res, page) => {
@@ -71,8 +35,9 @@ const parseAndTestLinks = (nextLink) => {
       let links = $('a');
       $(links).each(function (i, link) {
         let parsedLink = $(link).attr('href');
-        parsedLink = prepareLink(parsedLink, targetDomain);
-        if (isValidLink(parsedLink) && isOwnLink(parsedLink, targetDomain) && !issetLink(parsedLink, allLinks)) {
+        parsedLink = linkChecker.prepareLink(parsedLink, targetDomain);
+        if (linkChecker.isValidLink(parsedLink) && linkChecker.isOwnLink(parsedLink, targetDomain) && 
+            !linkChecker.issetLink(parsedLink, allLinks)) {
           parseAndTestLinks(parsedLink);
           allLinks.push({ link: parsedLink, status: res.statusCode });
         }
@@ -84,7 +49,7 @@ const parseAndTestLinks = (nextLink) => {
       } else {
         code = res.statusCode;
       }
-      if (!issetLink(nextLink, allLinks)) {
+      if (!linkChecker.issetLink(nextLink, allLinks)) {
         allLinks.push({ link: nextLink, status: code });
       }
     }
@@ -107,7 +72,6 @@ process.on('exit', (code) => {
 
   let brokenLinksCount = allLinksClear.reduce((sum, linkData) => {
     if (linkData.status !== 200) {
-      console.log(linkData);
       sum++;
     }
     return sum;
@@ -126,5 +90,3 @@ process.on('exit', (code) => {
   fs.appendFileSync(config.allLinksFilename, `${datetimeReportStr}, Всего ссылок: ${allLinks.length}\n`);
   fs.appendFileSync(config.brokenLinksFilename, `${datetimeReportStr}, Всего ссылок: ${brokenLinksCount}\n`);
 });
-
-exports.extractHostname = extractHostname;
