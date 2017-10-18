@@ -1,6 +1,3 @@
-// todo:
-// sololnikov.me - исключение
-// /# и // - одни и те же
 const request = require('request');
 const cheerio = require('cheerio');
 const validator = require('validator');
@@ -53,6 +50,7 @@ const isOwnLink = (link, targetDomain) => {
 };
 
 const prepareLink = (link, targetDomain) => {
+  link = String(link);
   if (!validator.isURL(link) || link.indexOf('http') !== 0) {
     return `http://${targetDomain}/${link}`
   }
