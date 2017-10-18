@@ -46,7 +46,17 @@ test('remove duplicates link', () => {
   ];
 
   const withoutDuplicates = linkCheckerCollection.removeDuplicatesLinks(linksWithDuplicates);
-  console.log(linksWithDuplicates);
   expect(withoutDuplicates).toEqual(linksWithoutDuplicates);
+});
+
+test('link checker main program', () => {
+  let allLinks = [];
+  let linksArr = [];
+  linkCheckerCollection.parseAndTestLinks('http://localhost:8080/');
+
+  setTimeout(() => {
+    console.log(allLinks);
+  }, 10000);
+  
 });
 

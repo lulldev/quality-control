@@ -4,6 +4,7 @@
   "description": "Testing link checker",
   "main": "link-checker.js",
   "scripts": {
+    "test-server": "nodemon test-server/server.js",
     "test": "jest & jest --coverage"
   },
   "repository": {
@@ -23,5 +24,8 @@
     "jest": "^21.2.1",
     "request": "^2.82.0",
     "validator": "^8.2.0"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
   }
 }
