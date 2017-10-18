@@ -1,3 +1,11 @@
+/* 
+todo:  
+http://links.testingcourse.ru/tel:88001112233 200
+http://links.testingcourse.ru/tel:88001112233 404
+
+todo:
+не все ссылки в broken links
+*/
 const request = require('request');
 const cheerio = require('cheerio');
 const validator = require('validator');
