@@ -58,7 +58,7 @@ const prepareLink = (link, targetDomain) => {
 };
 
 const issetLink = (link, allLinks) => {
-  return allLinks.some(elem => elem.link === link);
+  return !allLinks.some(elem => elem.link === link);
 };
 
 const removeDuplicatesLinks = (linksArr) => {
@@ -66,8 +66,9 @@ const removeDuplicatesLinks = (linksArr) => {
   linksArr.forEach((linkData, i) => {
     if (issetLinks.indexOf(linkData.link) > -1) {
       linksArr.splice(i, 1);
+    } else {
+      issetLinks.push(linkData.link);
     }
-    issetLinks.push(linkData.link);
   });
   return linksArr;
 };
@@ -81,9 +82,9 @@ const parseAndTestLinks = (nextLink) => {
         let parsedLink = $(link).attr('href');
         parsedLink = prepareLink(parsedLink, targetDomain);
         if (isValidLink(parsedLink) && isOwnLink(parsedLink, targetDomain) && linksArr.indexOf(parsedLink) === -1) {
-          parseAndTestLinks(parsedLink);
           allLinks.push({ link: parsedLink, status: res.statusCode });
           linksArr.push(parsedLink);
+          parseAndTestLinks(parsedLink);
         }
       });
     } else {
@@ -104,7 +105,6 @@ const parseAndTestLinks = (nextLink) => {
 parseAndTestLinks(targetUrl);
 
 process.on('exit', (code) => {
-
   fs.writeFile(config.allLinksFilename, '');
   fs.writeFile(config.brokenLinksFilename, '');
 
