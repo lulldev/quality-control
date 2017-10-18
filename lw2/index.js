@@ -58,12 +58,7 @@ const prepareLink = (link, targetDomain) => {
 };
 
 const issetLink = (link, allLinks) => {
-  allLinks.forEach((linkData) => {
-    if (link === linkData.link) {
-      return true;
-    }
-  });
-  return false;
+  return allLinks.some(elem => elem.link === link);
 };
 
 const removeDuplicatesLinks = (linksArr) => {
