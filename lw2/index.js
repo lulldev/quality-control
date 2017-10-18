@@ -1,3 +1,6 @@
+// todo:
+// sololnikov.me - исключение
+// /# и // - одни и те же
 const request = require('request');
 const cheerio = require('cheerio');
 const validator = require('validator');
@@ -39,6 +42,7 @@ if (!validator.isURL(targetUrl)) {
 }
 
 let allLinks = [];
+let linksArr = [];
 
 const isValidLink = (link) => {
   return (link.indexOf('javascript') === -1);
@@ -64,6 +68,16 @@ const issetLink = (link, allLinks) => {
   return false;
 };
 
+const removeDuplicatesLinks = (linksArr) => {
+  let issetLinks = [];
+  linksArr.forEach((linkData, i) => {
+    if (issetLinks.indexOf(linkData.link) > -1) {
+      linksArr.splice(i, 1);
+    }
+  });
+  return linksArr;
+};
+
 const parseAndTestLinks = (nextLink) => {
   request({ uri: nextLink, method: 'GET', encoding: 'binary' }, (err, res, page) => {
     if (res && res.statusCode == '200') {
@@ -72,9 +86,10 @@ const parseAndTestLinks = (nextLink) => {
       $(links).each(function (i, link) {
         let parsedLink = $(link).attr('href');
         parsedLink = prepareLink(parsedLink, targetDomain);
-        if (isValidLink(parsedLink) && isOwnLink(parsedLink, targetDomain) && !issetLink(parsedLink, allLinks)) {
+        if (isValidLink(parsedLink) && isOwnLink(parsedLink, targetDomain) && linksArr.indexOf(parsedLink) === -1) {
           parseAndTestLinks(parsedLink);
           allLinks.push({ link: parsedLink, status: res.statusCode });
+          linksArr.push(parsedLink);
         }
       });
     } else {
@@ -86,6 +101,7 @@ const parseAndTestLinks = (nextLink) => {
       }
       if (!issetLink(nextLink, allLinks)) {
         allLinks.push({ link: nextLink, status: code });
+        linksArr.push(nextLink);
       }
     }
   });
@@ -98,21 +114,15 @@ process.on('exit', (code) => {
   fs.writeFile(config.allLinksFilename, '');
   fs.writeFile(config.brokenLinksFilename, '');
 
-  let allLinksClear = allLinks.sort((a, b) => { return a.link < b.link ? -1 : 1; }).reduce((allLinks, el) => {
-    if (!allLinks.length || allLinks[allLinks.length - 1].link != el.link) {
-      allLinks.push(el);
-    }
-    return allLinks;
-  }, []);
-
-  let brokenLinksCount = allLinksClear.reduce((sum, linkData) => {
-    if (linkData.status !== 200) {
+  let allUniqueLinks = removeDuplicatesLinks(allLinks);
+  let brokenLinksCount = allUniqueLinks.reduce((sum, linkData) => {
+    if (linkData.status != 200) {
       sum++;
     }
     return sum;
   }, 0);
 
-  allLinksClear.forEach((linkData) => {
+  allUniqueLinks.forEach((linkData) => {
     if (linkData.status !== 200) {
       fs.appendFileSync(config.brokenLinksFilename, `${linkData.link} ${linkData.status}\n`);
     } 
