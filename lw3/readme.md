@@ -1,8 +1,8 @@
 <h4>Installation:</h4>
-```sh
-npm install
-```
-<h4>Running:</h4>
-```sh
-node ./index.js -u <url>
-```
+<code>npm install</code>
+
+<h4>Running unit-tests:</h4>
+<code>node test</code>
+
+<h4>Running tests coverage stat:</h4>
+<code>node start test-coverage</code>

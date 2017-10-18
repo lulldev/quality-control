@@ -14,20 +14,19 @@ test('check is own link', () => {
   expect(linkCheckerCollection.isOwnLink('https://ok.ru/', 'test.ru')).toBeFalsy();
 });
 
-test('prepared link', () => {
+test('preparing link', () => {
   expect(linkCheckerCollection.prepareLink('http://some.ru/', 'somepath')).toBe('http://some.ru/');
   expect(linkCheckerCollection.prepareLink('some', 'test.ru')).toBe('http://test.ru/some');
 });
 
 test('isset link', () => {
-  let links = [
+  const links = [
     {link: 'http://borodin-av.ru/'},
     {link: 'http://vk.com/'}
   ];
   expect(linkCheckerCollection.issetLink('', links)).toBeFalsy();
   expect(linkCheckerCollection.issetLink('http://some.ru/', links)).toBeFalsy();
-  // todo: crash this tests
-  // expect(linkCheckerCollection.issetLink('http://vk.com/', links)).toBe(true);
-  // expect(linkCheckerCollection.issetLink('http://borodin-av.ru/', links)).toBe(true);
+  expect(linkCheckerCollection.issetLink('http://vk.com/', links)).toBeTruthy();
+  expect(linkCheckerCollection.issetLink('http://borodin-av.ru/', links)).toBeTruthy();
 });
 

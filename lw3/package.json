@@ -4,8 +4,7 @@
   "description": "Testing link checker",
   "main": "link-checker.js",
   "scripts": {
-    "test": "jest",
-    "test-coverage": "jest --coverage"
+    "test": "jest & jest --coverage"
   },
   "repository": {
     "type": "git",
