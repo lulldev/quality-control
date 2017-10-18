@@ -30,3 +30,23 @@ test('isset link', () => {
   expect(linkCheckerCollection.issetLink('http://borodin-av.ru/', links)).toBeTruthy();
 });
 
+test('remove duplicates link', () => {
+  expect(linkCheckerCollection.removeDuplicatesLinks([])).toEqual([]);
+  expect(linkCheckerCollection.removeDuplicatesLinks([{link: 'http://borodin-av.ru/'}])).toEqual([{link: 'http://borodin-av.ru/'}]);
+
+  const linksWithDuplicates = [
+    {link: 'http://borodin-av.ru/'},
+    {link: 'http://vk.com/'},
+    {link: 'http://vk.com/'}
+  ];
+
+  const linksWithoutDuplicates = [
+    {link: 'http://borodin-av.ru/'},
+    {link: 'http://vk.com/'}
+  ];
+
+  const withoutDuplicates = linkCheckerCollection.removeDuplicatesLinks(linksWithDuplicates);
+  console.log(linksWithDuplicates);
+  expect(withoutDuplicates).toEqual(linksWithoutDuplicates);
+});
+

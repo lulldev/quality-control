@@ -30,6 +30,7 @@ const removeDuplicatesLinks = (linksArr) => {
     if (issetLinks.indexOf(linkData.link) > -1) {
       linksArr.splice(i, 1);
     }
+    issetLinks.push(linkData.link);
   });
   return linksArr;
 };
