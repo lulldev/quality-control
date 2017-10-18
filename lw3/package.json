@@ -1,8 +1,8 @@
 {
   "name": "sites-links-testing",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Testing link checker",
+  "main": "link-checker.js",
   "scripts": {
     "test": "jest",
     "test-coverage": "jest --coverage"

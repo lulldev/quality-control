@@ -1,11 +1,5 @@
 const linkCheckerCollection = require('./link-checker');
 
-test('extract hostname', () => {
-  expect(linkCheckerCollection.extractHostname('')).toBe('');
-  expect(linkCheckerCollection.extractHostname('http://vk.com/')).toBe('vk.com');
-  expect(linkCheckerCollection.extractHostname('https://site.ru/')).toBe('site.ru');
-});
-
 test('link validator', () => {
   expect(linkCheckerCollection.isValidLink('http://some.ru/')).toBeTruthy();
   expect(linkCheckerCollection.isValidLink('/')).toBeTruthy();
