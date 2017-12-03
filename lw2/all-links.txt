@@ -11,23 +11,24 @@ http://links.testingcourse.ru/ 200
 http://links.testingcourse.ru/page7.html 200
 http://links.testingcourse.ru/# 200
 http://links.testingcourse.ru// 200
-http://links.testingcourse.ru/page12.html 200
-http://links.testingcourse.ru/page13.html 200
-http://links.testingcourse.ru/page10.html 200
-http://links.testingcourse.ru/page11.html 200
-http://links.testingcourse.ru/page9.html 200
-http://links.testingcourse.ru/tel:88001112233 200
-http://links.testingcourse.ru/tel:88001112233 404
-http://links.testingcourse.ru/mailto:test@testingcourse.ru 200
-http://links.testingcourse.ru/page17.html 200
-http://links.testingcourse.ru/page15.html 200
-http://links.testingcourse.ru/page16.html 200
-http://links.testingcourse.ru/page17.html 404
-http://links.testingcourse.ru/page15.html 404
-http://links.testingcourse.ru/page13.html 404
 http://links.testingcourse.ru/termopasta.png 200
 http://links.testingcourse.ru/page8.html 200
 http://links.testingcourse.ru/image.jpg 200
+http://links.testingcourse.ru/page12.html 200
+http://links.testingcourse.ru/page13.html 200
+http://links.testingcourse.ru/page9.html 200
+http://links.testingcourse.ru/tel:88001112233 200
+http://links.testingcourse.ru/page10.html 200
+http://links.testingcourse.ru/page11.html 200
+http://links.testingcourse.ru/page13.html 404
 http://links.testingcourse.ru/trololo 200
+http://links.testingcourse.ru/page15.html 200
+http://links.testingcourse.ru/page16.html 200
+http://links.testingcourse.ru/page11.html 404
 http://links.testingcourse.ru/trololo 404
-Время тестирования: 2017-10-18 09:53:11, Всего ссылок: 32
+http://links.testingcourse.ru/mailto:test@testingcourse.ru 200
+http://links.testingcourse.ru/page17.html 200
+http://links.testingcourse.ru/page15.html 404
+http://links.testingcourse.ru/mailto:test@testingcourse.ru 404
+Время тестирования: 2017-12-02 17:28:01, Всего ссылок: 32
+Время тестирования: 2017-12-03 09:55:04, Всего ссылок: 13
