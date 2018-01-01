@@ -1,5 +1,5 @@
 <h4>Installation:</h4>
-<code>npm install</code>
+`npm install`
 
 <h4>Running:</h4>
-<code>node ./index.js -u <url></code>
+`node ./index.js -u <url>`
