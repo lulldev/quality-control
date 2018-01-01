@@ -103,10 +103,14 @@ crawler.crawl({
     });
 
     let brokenLinkCounter = 0;
+    let issetBrokenLinks = [];
     // todo: убрать дубликаты и вывести
     brokenLinks.forEach((link) => {
-      fs.appendFileSync(config.brokenLinksFilename, `${link.url} ${link.status}\n`);
-      brokenLinkCounter++;
+      if (issetBrokenLinks.indexOf(link.url) === -1) {
+        fs.appendFileSync(config.brokenLinksFilename, `${link.url} ${link.status}\n`);
+        brokenLinkCounter++;
+        issetBrokenLinks.push(link.url);
+      }
     });
 
     crawledUrls.forEach((link) => {
