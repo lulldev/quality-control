@@ -121,6 +121,6 @@ crawler.crawl({
     const datetimeReportStr = `Время тестирования: ${datetime}`;
 
     fs.appendFileSync(config.allLinksFilename, `${datetimeReportStr}, Всего ссылок: ${crawledUrls.length}\n`);
-    fs.appendFileSync(config.brokenLinksFilename, `${datetimeReportStr}, Всего ссылок: ${brokenLinkCounter}\n`);
+    fs.appendFileSync(config.brokenLinksFilename, `${datetimeReportStr}, Битых ссылок: ${brokenLinkCounter}\n`);
   }
 });
