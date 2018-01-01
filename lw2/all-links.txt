@@ -1,34 +1,26 @@
-http://links.testingcourse.ru/page1.html 200
-http://links.testingcourse.ru/page2.html 200
-http://links.testingcourse.ru/./page1.html 200
-http://links.testingcourse.ru/index.html 200
-http://links.testingcourse.ru/page3.html 200
-http://links.testingcourse.ru/page.html 200
-http://links.testingcourse.ru/page5.html 200
-http://links.testingcourse.ru/page4.html 200
-http://links.testingcourse.ru/page6.html 200
-http://links.testingcourse.ru/ 200
-http://links.testingcourse.ru/page7.html 200
-http://links.testingcourse.ru/# 200
-http://links.testingcourse.ru// 200
-http://links.testingcourse.ru/termopasta.png 200
-http://links.testingcourse.ru/page8.html 200
-http://links.testingcourse.ru/image.jpg 200
-http://links.testingcourse.ru/page12.html 200
-http://links.testingcourse.ru/page13.html 200
-http://links.testingcourse.ru/page9.html 200
-http://links.testingcourse.ru/tel:88001112233 200
-http://links.testingcourse.ru/page10.html 200
-http://links.testingcourse.ru/page11.html 200
-http://links.testingcourse.ru/page13.html 404
-http://links.testingcourse.ru/trololo 200
-http://links.testingcourse.ru/page15.html 200
-http://links.testingcourse.ru/page16.html 200
-http://links.testingcourse.ru/page11.html 404
-http://links.testingcourse.ru/trololo 404
-http://links.testingcourse.ru/mailto:test@testingcourse.ru 200
-http://links.testingcourse.ru/page17.html 200
-http://links.testingcourse.ru/page15.html 404
-http://links.testingcourse.ru/mailto:test@testingcourse.ru 404
-Время тестирования: 2017-12-02 17:28:01, Всего ссылок: 32
-Время тестирования: 2017-12-03 09:55:04, Всего ссылок: 13
+http://links.testingcourse.ru/
+http://links.testingcourse.ru/page1.html
+http://links.testingcourse.ru/page2.html
+http://links.testingcourse.ru/index.html
+http://links.testingcourse.ru/page.html
+http://links.testingcourse.ru/page3.html
+http://links.testingcourse.ru/page5.html
+http://links.testingcourse.ru/page13.html
+http://links.testingcourse.ru/page4.html
+http://links.testingcourse.ru/page6.html
+http://links.testingcourse.ru/page12.html
+http://links.testingcourse.ru/page7.html
+http://links.testingcourse.ru/termopasta.png
+http://links.testingcourse.ru/page8.html
+http://links.testingcourse.ru/image.jpg
+http://links.testingcourse.ru/page11.html
+http://links.testingcourse.ru/page9.html
+http://links.testingcourse.ru/page10.html
+http://links.testingcourse.ru/trololo
+http://links.testingcourse.ru/page15.html
+http://links.testingcourse.ru/page16.html
+http://links.testingcourse.ru/page17.html
+http://links.testingcourse.ru/./page1.html
+http://links.testingcourse.ru/#
+http://links.testingcourse.ru//
+Время тестирования: 2018-01-01 17:16:25, Всего ссылок: 25
