@@ -1,0 +1,17 @@
+.application-container {
+    margin-top: 25px;
+}
+
+#canvas-area {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+}
+
+.circle-form,
+.rectangle-form,
+.triangle-form,
+.color-form,
+.action-control-btns {
+    display: none;
+}
