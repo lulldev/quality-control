@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">26.32% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>19/38</span>
+        <span class='fraction'>10/38</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">78.57% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>11/14</span>
+        <span class='fraction'>0/14</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/6</span>
+        <span class='fraction'>0/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">26.32% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>19/38</span>
+        <span class='fraction'>10/38</span>
       </div>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -126,9 +126,9 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -138,26 +138,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -203,10 +203,10 @@
 &nbsp;
 const CShape = require('./shape');
 &nbsp;
-function CRectangle(shapeColorParams, shapeParams) {
-    CShape.apply(this, arguments);
+<span class="fstat-no" title="function not covered" >function CRectangle(shapeColorParams, shapeParams) {</span>
+<span class="cstat-no" title="statement not covered" >    CShape.apply(this, arguments);</span>
 &nbsp;
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (shapeParams === undefined)
+<span class="cstat-no" title="statement not covered" >    if (shapeParams === undefined)</span>
     {
 <span class="cstat-no" title="statement not covered" >        shapeParams = {</span>
             x1: 10,
@@ -216,26 +216,26 @@ function CRectangle(shapeColorParams, shapeParams) {
         };
     }
 &nbsp;
-    this.validateParams(shapeParams);
+<span class="cstat-no" title="statement not covered" >    this.validateParams(shapeParams);</span>
 &nbsp;
-    this.x1 = shapeParams.x1;
-    this.y1 = shapeParams.y1;
-    this.x2 = shapeParams.x2;
-    this.y2 = shapeParams.y2;
+<span class="cstat-no" title="statement not covered" >    this.x1 = shapeParams.x1;</span>
+<span class="cstat-no" title="statement not covered" >    this.y1 = shapeParams.y1;</span>
+<span class="cstat-no" title="statement not covered" >    this.x2 = shapeParams.x2;</span>
+<span class="cstat-no" title="statement not covered" >    this.y2 = shapeParams.y2;</span>
 }
 &nbsp;
 CRectangle.prototype = Object.create(CShape.prototype);
 CRectangle.prototype.constructor = CRectangle;
 &nbsp;
 &nbsp;
-CRectangle.prototype.validateParams = function(shapeParams) {
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (!shapeParams.hasOwnProperty('x1') || !shapeParams.hasOwnProperty('y1') ||
+CRectangle.prototype.validateParams = <span class="fstat-no" title="function not covered" >function(shapeParams) {</span>
+<span class="cstat-no" title="statement not covered" >    if (!shapeParams.hasOwnProperty('x1') || !shapeParams.hasOwnProperty('y1') ||</span>
         !shapeParams.hasOwnProperty('x2') || !shapeParams.hasOwnProperty('y2'))
     {
 <span class="cstat-no" title="statement not covered" >        throw ReferenceError("Rectangle params required");</span>
     }
 &nbsp;
-    <span class="missing-if-branch" title="if path not taken" >I</span>if (shapeParams.x1 &lt; 0 || shapeParams.y1 &lt; 0 ||
+<span class="cstat-no" title="statement not covered" >    if (shapeParams.x1 &lt; 0 || shapeParams.y1 &lt; 0 ||</span>
             shapeParams.x2 &lt; 0 || shapeParams.y2 &lt; 0)
     {
 <span class="cstat-no" title="statement not covered" >        throw RangeError("Invalid rectangle params");</span>
@@ -283,7 +283,7 @@ module.exports = CRectangle;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Jan 02 2018 14:37:09 GMT+0300 (MSK)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Jan 02 2018 14:47:41 GMT+0300 (MSK)
 </div>
 </div>
 <script src="../prettify.js"></script>
