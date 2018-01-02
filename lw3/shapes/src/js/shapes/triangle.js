@@ -1,5 +1,7 @@
 'use strict';
 
+const CShape = require('./shape');
+
 function CTriangle(shapeColorParams, shapeParams) {
     CShape.apply(this, arguments);
 
@@ -87,3 +89,4 @@ CTriangle.prototype.draw = function(canvasAreaId) {
     context.fill();
 };
 
+module.exports = CTriangle;

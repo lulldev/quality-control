@@ -1,0 +1,3 @@
+src/js/shapes
+--require ./test/common.js
+--recursive

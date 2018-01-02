@@ -1,5 +1,5 @@
 {
-  "name": "shapes",
+  "name": "tested-shapes",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,8 +7,16 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha",
+    "tdd:mac": "./node_modules/.bin/mocha -w"
   },
   "author": "tocean",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.4",
+    "mocha": "^3.0.2",
+    "sinon": "^1.17.5",
+    "sinon-chai": "^2.8.0"
+  }
 }

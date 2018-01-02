@@ -49,3 +49,4 @@ CShape.prototype.getBorderColor = function() {
     return this.borderColor;
 };
 
+module.exports = CShape;

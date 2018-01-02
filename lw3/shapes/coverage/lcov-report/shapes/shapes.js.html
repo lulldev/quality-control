@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for shapes/shapes.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">shapes/</a> shapes.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">18.18% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>6/33</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">18.18% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>6/33</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+<span class="fstat-no" title="function not covered" >function ShapeProgram(canvasAreaId)</span>
+{
+<span class="cstat-no" title="statement not covered" >    canvasAreaId === undefined ?</span>
+        this.canvasAreaId = "canvas-area" : this.canvasAreaId = canvasArea;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.LoadScript('js/shapes/shape.js');</span>
+<span class="cstat-no" title="statement not covered" >    this.LoadScript('js/shapes/circle.js');</span>
+<span class="cstat-no" title="statement not covered" >    this.LoadScript('js/shapes/rectangle.js');</span>
+<span class="cstat-no" title="statement not covered" >    this.LoadScript('js/shapes/shape.js');</span>
+<span class="cstat-no" title="statement not covered" >    this.LoadScript('js/shapes/triangle.js');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.LoadScript('js/program/events.js');</span>
+}
+&nbsp;
+/*
+ Loader solution by joshuamabina
+ http://stackoverflow.com/questions/950087/how-do-i-include-a-javascript-file-in-another-javascript-file
+ */
+ShapeProgram.prototype.LoadScript = <span class="fstat-no" title="function not covered" >function (url, callback)</span>
+{
+    // Adding the script tag to the head as suggested before
+<span class="cstat-no" title="statement not covered" >    var head = document.getElementsByTagName('head')[0];</span>
+<span class="cstat-no" title="statement not covered" >    var script = document.createElement('script');</span>
+<span class="cstat-no" title="statement not covered" >    script.type = 'text/javascript';</span>
+<span class="cstat-no" title="statement not covered" >    script.src = url;</span>
+&nbsp;
+    // Then bind the event to the callback function.
+    // There are several events for cross browser compatibility.
+<span class="cstat-no" title="statement not covered" >    script.onreadystatechange = callback;</span>
+<span class="cstat-no" title="statement not covered" >    script.onload = callback;</span>
+&nbsp;
+    // Fire the loading
+<span class="cstat-no" title="statement not covered" >    head.appendChild(script);</span>
+};
+&nbsp;
+ShapeProgram.prototype.GetFormCollection =  <span class="fstat-no" title="function not covered" >function ()</span>
+{
+<span class="cstat-no" title="statement not covered" >    return {</span>
+        colorForm: document.getElementsByClassName('color-form')[0],
+        circleForm: document.getElementsByClassName('circle-form')[0],
+        rectangleForm: document.getElementsByClassName('rectangle-form')[0],
+        triangleForm: document.getElementsByClassName('triangle-form')[0],
+        actionControl: document.getElementsByClassName('action-control-btns')[0]
+    };
+};
+&nbsp;
+ShapeProgram.prototype.ResetForm = <span class="fstat-no" title="function not covered" >function ()</span>
+{
+<span class="cstat-no" title="statement not covered" >    let controlForms = this.GetFormCollection();</span>
+<span class="cstat-no" title="statement not covered" >    for (let formName in controlForms)</span>
+    {
+<span class="cstat-no" title="statement not covered" >        controlForms[formName].style.display = "none";</span>
+    }
+};
+&nbsp;
+ShapeProgram.prototype.UpdateAreaAndPerimeter = <span class="fstat-no" title="function not covered" >function (area, perimeter)</span>
+{
+<span class="cstat-no" title="statement not covered" >    document.getElementsByClassName('shape-area')[0].innerHTML = area;</span>
+<span class="cstat-no" title="statement not covered" >    document.getElementsByClassName('shape-perimeter')[0].innerHTML = perimeter;</span>
+};
+&nbsp;
+ShapeProgram.prototype.DisplayShape = <span class="fstat-no" title="function not covered" >function (shapeObj, shapeColorParams, shapeParams)</span>
+{
+<span class="cstat-no" title="statement not covered" >    let shape;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    try</span>
+    {
+<span class="cstat-no" title="statement not covered" >        shape = new shapeObj(shapeColorParams, shapeParams);</span>
+    }
+    catch (e)
+    {
+<span class="cstat-no" title="statement not covered" >        alert(e.message);</span>
+<span class="cstat-no" title="statement not covered" >        return;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    shape.draw(this.canvasAreaId);</span>
+<span class="cstat-no" title="statement not covered" >    this.UpdateAreaAndPerimeter(shape.calculateArea(), shape.calculatePerimeter());</span>
+};
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Jan 02 2018 14:37:09 GMT+0300 (MSK)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

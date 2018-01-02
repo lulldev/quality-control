@@ -1,5 +1,7 @@
 'use strict';
 
+const CShape = require('./shape');
+
 function CCircle(shapeColorParams, shapeParams) {
     CShape.apply(this, arguments);
 
@@ -58,3 +60,5 @@ CCircle.prototype.draw = function(canvasAreaId) {
     context.strokeStyle = this.getBorderColor();
     context.stroke();
 };
+
+module.exports = CCircle;

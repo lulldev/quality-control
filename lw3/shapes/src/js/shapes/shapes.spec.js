@@ -1,3 +1,9 @@
+'use strict'
+
+const CCircle = require('./circle');
+const CRectangle = require('./rectangle');
+const CTriangle = require('./triangle');
+
 describe("CCircle testing", function () {
 
     describe("Init circle", function () {

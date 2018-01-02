@@ -1,5 +1,7 @@
 'use strict';
 
+const CShape = require('./shape');
+
 function CRectangle(shapeColorParams, shapeParams) {
     CShape.apply(this, arguments);
 
@@ -72,3 +74,5 @@ CRectangle.prototype.draw = function(canvasAreaId) {
     context.fillRect(this.x1, this.y1, a, b);
     context.strokeRect(this.x1, this.y1, a, b);
 };
+
+module.exports = CRectangle;
