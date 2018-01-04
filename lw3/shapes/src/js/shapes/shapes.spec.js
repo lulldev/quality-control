@@ -7,11 +7,11 @@ const Circle = require('./circle');
 // TODO: test circle and make 100% coverage 
 // now tests not working. throws problem. maybe rewrite to es6
 
-describe("Circle testing", () => {
+describe('Circle testing', () => {
 
-  describe("Init circle", () => {
+  describe('Init circle', () => {
 
-    it("Init with wrong values", () => {
+    it('Init with wrong values', () => {
 
       expect(() => {
           new Circle({
@@ -50,7 +50,7 @@ describe("Circle testing", () => {
       ).to.throw(RangeError);
     });
 
-    it("Init with default values", () => {
+    it('Init with default values', () => {
 
       const circle = new Circle();
 
@@ -61,7 +61,7 @@ describe("Circle testing", () => {
       assert.equal(circle.getBorderColor(), '#000');
     });
 
-    it("Init with optional values", () => {
+    it('Init with optional values', () => {
 
       const circle = new Circle({
         fillColorValue: '#ccc',
@@ -81,7 +81,7 @@ describe("Circle testing", () => {
 
   });
 
-  describe("Calculations", () => {
+  describe('Calculations', () => {
 
     const circle = new Circle({
       fillColorValue: '#ccc',
@@ -92,27 +92,28 @@ describe("Circle testing", () => {
       centerY: 200
     });
 
-    it("Calculate perimeter", () => {
+    it('Calculate perimeter', () => {
       assert.typeOf(circle.calculatePerimeter(), 'number');
       assert.equal(circle.calculatePerimeter(), 62.83);
     });
 
-    it("Calculate area", () => {
+    it('Calculate area', () => {
       assert.typeOf(circle.calculateArea(), 'number');
       assert.equal(circle.calculateArea(), 986.96)
     });
   });
+
 
 });
 
 /*
 
 
-describe("Rectangle testing", function () {
+describe('Rectangle testing', function () {
 
-    describe("Init rectangle", function () {
+    describe('Init rectangle', function () {
 
-        it("Init with wrong values", function () {
+        it('Init with wrong values', function () {
 
             expect(
                 function () {
@@ -148,11 +149,11 @@ describe("Rectangle testing", function () {
                         { x1: -10, y1: 20, x2: 200, y2: -1 }
                     );
                 }
-            ).to.throw(RangeError, "Invalid rectangle params");
+            ).to.throw(RangeError, 'Invalid rectangle params');
 
         });
 
-        it("Init with default values", function () {
+        it('Init with default values', function () {
 
             const rectangle = new Rectangle();
             assert.equal(rectangle.x1, 10);
@@ -163,7 +164,7 @@ describe("Rectangle testing", function () {
             assert.equal(rectangle.borderColor, '#000');
         });
 
-        it("Init with optional values", function () {
+        it('Init with optional values', function () {
 
             const rectangle = new Rectangle(
                 { fillColorValue: '#ccc', borderColorValue: '#000' },
@@ -179,24 +180,24 @@ describe("Rectangle testing", function () {
 
     });
 
-    describe("Calculations", function () {
+    describe('Calculations', function () {
 
         const rectangle = new Rectangle(
             { fillColorValue: '#ccc', borderColorValue: '#000' },
             { x1: 10, y1: 20, x2: 50, y2: 30 }
         );
 
-        it("Calculate sides", function () {
+        it('Calculate sides', function () {
             assert.typeOf(rectangle.calculateSides(), 'array');
             assert.equal(rectangle.calculateSides().join(), '40,10');
         });
 
-        it("Calculate perimeter", function () {
+        it('Calculate perimeter', function () {
             assert.typeOf(rectangle.calculatePerimeter(), 'number');
             assert.equal(rectangle.calculatePerimeter(), 100);
         });
 
-        it("Calculate area", function () {
+        it('Calculate area', function () {
             assert.typeOf(rectangle.calculateArea(), 'number');
             assert.equal(rectangle.calculateArea(), 400)
         });
@@ -204,11 +205,11 @@ describe("Rectangle testing", function () {
 
 });
 
-describe("Triangle testing", function () {
+describe('Triangle testing', function () {
 
-    describe("Init triangle", function () {
+    describe('Init triangle', function () {
 
-        it("Init with wrong values", function () {
+        it('Init with wrong values', function () {
 
             expect(
                 function () {
@@ -244,11 +245,11 @@ describe("Triangle testing", function () {
                         { x1: -10, y1: 20, x2: 200, y2: -1, x3: 20, y3: 100 }
                     );
                 }
-            ).to.throw(RangeError, "Invalid triangle params");
+            ).to.throw(RangeError, 'Invalid triangle params');
 
         });
 
-        it("Init with default values", function () {
+        it('Init with default values', function () {
 
             const triangle = new Triangle();
             assert.equal(triangle.x1, 10);
@@ -261,7 +262,7 @@ describe("Triangle testing", function () {
             assert.equal(triangle.borderColor, '#000');
         });
 
-        it("Init with optional values", function () {
+        it('Init with optional values', function () {
 
             const triangle = new Triangle(
                 { fillColorValue: '#ccc', borderColorValue: '#000' },
@@ -280,21 +281,21 @@ describe("Triangle testing", function () {
 
     });
 
-    describe("Calculations", function () {
+    describe('Calculations', function () {
 
         const triangle = new Triangle('#ccc', '#000', 10, 20, 50, 30, 50, 60);
 
-        it("Calculate sides", function () {
+        it('Calculate sides', function () {
             assert.typeOf(triangle.calculateSides(), 'array');
             assert.equal(triangle.calculateSides().join(), '3.080070288241023,2.340347319320716,3.5565588200778455');
         });
 
-        it("Calculate perimeter", function () {
+        it('Calculate perimeter', function () {
             assert.typeOf(triangle.calculatePerimeter(), 'number');
             assert.equal(triangle.calculatePerimeter(), 17.95);
         });
 
-        it("Calculate area", function () {
+        it('Calculate area', function () {
             assert.typeOf(triangle.calculateArea(), 'number');
             assert.equal(triangle.calculateArea(), 244.89)
         });
