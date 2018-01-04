@@ -57,8 +57,8 @@ describe("Circle testing", () => {
       assert.equal(circle.radius, 50);
       assert.equal(circle.centerX, 200);
       assert.equal(circle.centerY, 200);
-      assert.equal(circle.fillColor, '#fff');
-      assert.equal(circle.borderColor, '#000');
+      assert.equal(circle.getFillColor(), '#fff');
+      assert.equal(circle.getBorderColor(), '#000');
     });
 
     it("Init with optional values", () => {

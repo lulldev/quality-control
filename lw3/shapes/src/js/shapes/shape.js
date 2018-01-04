@@ -29,8 +29,7 @@ Shape.prototype.validateColor = function (expectedHexColor) {
 };
 
 Shape.prototype.setFillColor = function (fillColorValue) {
-    fillColorValue != undefined ?
-        this.fillColor = fillColorValue : this.fillColor = '#fff';
+    this.fillColor = fillColorValue;
 };
 
 Shape.prototype.getFillColor = function () {
@@ -38,8 +37,7 @@ Shape.prototype.getFillColor = function () {
 };
 
 Shape.prototype.setBorderColor = function (borderColorValue) {
-    borderColorValue != undefined ?
-        this.borderColor = borderColorValue : this.borderColor = '#000';
+    this.borderColor = borderColorValue;
 };
 
 Shape.prototype.getBorderColor = function () {
