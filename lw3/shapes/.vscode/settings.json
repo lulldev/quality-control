@@ -1,12 +1,12 @@
 {
   "mocha.enabled": true,
-      "typescript.check.tscVersion": false,
-    "workbench.activityBar.visible": true,
-    "editor.tabSize": 2,
-    "extensions.ignoreRecommendations": false,
-    "workbench.colorTheme": "Solarized Light",
-    "C_Cpp.intelliSenseEngineFallback": "Disabled",
-    "C_Cpp.errorSquiggles": "Disabled",
-    "typescript.check.npmIsInstalled": false,
-    "git.enableSmartCommit": true
+  "typescript.check.tscVersion": false,
+  "workbench.activityBar.visible": true,
+  "editor.tabSize": 2,
+  "extensions.ignoreRecommendations": false,
+  "workbench.colorTheme": "Solarized Light",
+  "C_Cpp.intelliSenseEngineFallback": "Disabled",
+  "C_Cpp.errorSquiggles": "Disabled",
+  "typescript.check.npmIsInstalled": false,
+  "git.enableSmartCommit": true
 }
