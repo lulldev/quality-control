@@ -38,6 +38,14 @@ describe('Circle testing', () => {
                 new Circle({
                     fillColorValue: '#ddd',
                     borderColorValue: '#ddd'
+                }, { centerX: 20, centerY: 200});
+            }
+            ).to.throw(ReferenceError, 'Circle params required');
+
+            expect(() => {
+                new Circle({
+                    fillColorValue: '#ddd',
+                    borderColorValue: '#ddd'
                 }, {
                         radius: -10,
                         centerX: 20,
@@ -138,6 +146,14 @@ describe('Rectangle testing', () => {
                 new Rectangle({
                     fillColorValue: '#ddd',
                     borderColorValue: '#ddd'
+                }, {y1: 20, x2: 200, y2: -1 });
+            }
+            ).to.throw(ReferenceError, 'Rectangle params required');
+
+            expect(() => {
+                new Rectangle({
+                    fillColorValue: '#ddd',
+                    borderColorValue: '#ddd'
                 }, { x1: -10, y1: 20, x2: 50, y2: 30 });
             }
             ).to.throw(RangeError, 'Invalid rectangle params');
@@ -150,8 +166,8 @@ describe('Rectangle testing', () => {
             assert.equal(rectangle.y2, 20);
             assert.equal(rectangle.x2, 40);
             assert.equal(rectangle.y2, 20);
-            assert.equal(circle.getFillColor(), '#fff');
-            assert.equal(circle.getBorderColor(), '#000');
+            assert.equal(rectangle.getFillColor(), '#fff');
+            assert.equal(rectangle.getBorderColor(), '#000');
         });
 
         it('Init with optional values', () => {
@@ -164,8 +180,8 @@ describe('Rectangle testing', () => {
             assert.equal(rectangle.y2, 200);
             assert.equal(rectangle.x2, 300);
             assert.equal(rectangle.y2, 200);
-            assert.equal(circle.getFillColor(), '#ccc');
-            assert.equal(circle.getBorderColor(), '#000');
+            assert.equal(rectangle.getFillColor(), '#ccc');
+            assert.equal(rectangle.getBorderColor(), '#000');
         });
 
     });
@@ -192,69 +208,68 @@ describe('Rectangle testing', () => {
             assert.equal(rectangle.calculateArea(), 400)
         });
     });
-
-
 });
 
-/*
-describe('Triangle testing', function () {
+describe('Triangle testing', () => {
 
-    describe('Init triangle', function () {
+    describe('Init triangle', () => {
 
-        it('Init with wrong values', function () {
+        it('Init with wrong values', () => {
 
-            expect(
-                function () {
-                    new Triangle({
-                        wrongparam: '#ddd',
-                        borderColorValue: '#ddd'
-                    });
-                }
+            expect(() => {
+                new Triangle({
+                    wrongparam: '#ddd',
+                    borderColorValue: '#ddd'
+                });
+            }
             ).to.throw(ReferenceError, 'Shape colors params required');
 
-            expect(
-                function () {
-                    new Triangle({
-                        fillColorValue: 'ddd',
-                        borderColorValue: '#ddd'
-                    });
-                }
+            expect(() => {
+                new Triangle({
+                    fillColorValue: 'ddd',
+                    borderColorValue: '#ddd'
+                });
+            }
             ).to.throw(RangeError, 'Invalid shape colors');
 
-            expect(
-                function () {
-                    new Triangle({
-                        fillColorValue: '#ddd',
-                        borderColorValue: '#ddd'
-                    });
-                }
+            expect(() => {
+                new Triangle({
+                    fillColorValue: '#ddd',
+                    borderColorValue: '#ddd'
+                });
+            }
             ).to.not.throw();
 
-            expect(
-                function () {
-                    new Triangle(
-                        { fillColorValue: '#ddd', borderColorValue: '#ddd' },
-                        { x1: -10, y1: 20, x2: 200, y2: -1, x3: 20, y3: 100 }
-                    );
-                }
-            ).to.throw(RangeError, 'Invalid triangle params');
+            expect(() => {
+                new Triangle({
+                    fillColorValue: '#ddd',
+                    borderColorValue: '#ddd'
+                }, {y1: 20, x2: 200, y2: -1, x3: 20, y3: 100 });
+            }
+            ).to.throw(ReferenceError, 'Triangle params required');
 
+            expect(() => {
+                new Triangle({
+                    fillColorValue: '#ddd',
+                    borderColorValue: '#ddd'
+                }, { x1: -10, y1: 20, x2: 200, y2: -1, x3: 20, y3: 100 });
+            }
+            ).to.throw(RangeError, 'Invalid triangle params');
         });
 
-        it('Init with default values', function () {
-
-            const triangle = new Triangle();
+        it('Init with default values', () => {
+           const triangle = new Triangle();
             assert.equal(triangle.x1, 10);
             assert.equal(triangle.y2, 20);
             assert.equal(triangle.x2, 40);
             assert.equal(triangle.y2, 20);
             assert.equal(triangle.x3, 50);
             assert.equal(triangle.y3, 60);
-            assert.equal(triangle.fillColor, '#fff');
-            assert.equal(triangle.borderColor, '#000');
+            assert.equal(triangle.getFillColor(), '#fff');
+            assert.equal(triangle.getBorderColor(), '#000');
         });
 
-        it('Init with optional values', function () {
+        it('Init with optional values', () => {
 
             const triangle = new Triangle(
                 { fillColorValue: '#ccc', borderColorValue: '#000' },
@@ -267,15 +282,18 @@ describe('Triangle testing', function () {
             assert.equal(triangle.y2, 200);
             assert.equal(triangle.x3, 400);
             assert.equal(triangle.y3, 500);
-            assert.equal(triangle.fillColor, '#ccc');
-            assert.equal(triangle.borderColor, '#000');
+            assert.equal(triangle.getFillColor(), '#ccc');
+            assert.equal(triangle.getBorderColor(), '#000');
         });
 
     });
 
     describe('Calculations', function () {
 
-        const triangle = new Triangle('#ccc', '#000', 10, 20, 50, 30, 50, 60);
+        const triangle = new Triangle({
+            fillColorValue: '#ccc',
+            borderColorValue: '#000'
+        }, { x1: 10, y1: 20, x2: 50, y2: 30, x3: 50, y3: 60 });
 
         it('Calculate sides', function () {
             assert.typeOf(triangle.calculateSides(), 'array');
@@ -294,4 +312,3 @@ describe('Triangle testing', function () {
     });
 
 });
-*/

@@ -24,6 +24,10 @@ Circle.prototype = Object.create(Shape.prototype);
 Circle.prototype.constructor = Circle;
 
 Circle.prototype.validateParams = function (shapeParams) {
+    if (!shapeParams.hasOwnProperty('radius') || !shapeParams.hasOwnProperty('centerX') ||
+        !shapeParams.hasOwnProperty('centerY')) {
+        throw ReferenceError("Circle params required");
+    }
     if (shapeParams.radius < 0 || shapeParams.centerX < 0 || shapeParams.centerY < 0) {
         throw RangeError("Invalid circle params");
     }

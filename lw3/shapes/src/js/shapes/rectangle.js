@@ -27,6 +27,10 @@ Rectangle.prototype.constructor = Rectangle;
 
 
 Rectangle.prototype.validateParams = function (shapeParams) {
+    if (!shapeParams.hasOwnProperty('x1') || !shapeParams.hasOwnProperty('y1') ||
+        !shapeParams.hasOwnProperty('x2') || !shapeParams.hasOwnProperty('y2')) {
+        throw ReferenceError("Rectangle params required");
+    }
     if (shapeParams.x1 < 0 || shapeParams.y1 < 0 ||
         shapeParams.x2 < 0 || shapeParams.y2 < 0) {
         throw RangeError("Invalid rectangle params");
