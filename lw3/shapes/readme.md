@@ -1,5 +1,5 @@
 # Shapes with Mocha tests + coverage by instabul
-
+Working example repo: https://github.com/lulldev/shapes-npm
 ## Installation
 
 ```
