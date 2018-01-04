@@ -1,170 +1,160 @@
 'use strict'
 
 const Circle = require('./circle');
-// const Rectangle = require('./rectangle');
-// const Triangle = require('./triangle');
-
-// TODO: test circle and make 100% coverage 
-// now tests not working. throws problem. maybe rewrite to es6
+const Rectangle = require('./rectangle');
+const Triangle = require('./triangle');
 
 describe('Circle testing', () => {
 
-  describe('Init circle', () => {
+    describe('Init circle', () => {
 
-    it('Init with wrong values', () => {
+        it('Init with wrong values', () => {
 
-      expect(() => {
-          new Circle({
-            wrongparam: '#ddd',
-            borderColorValue: '#ddd'
-          });
-        }
-      ).to.throw(ReferenceError, 'Shape colors params required');
+            expect(() => {
+                new Circle({
+                    wrongparam: '#ddd',
+                    borderColorValue: '#ddd'
+                });
+            }
+            ).to.throw(ReferenceError, 'Shape colors params required');
 
-      expect(() => {
-          new Circle({
-            fillColorValue: 'ddd',
-            borderColorValue: '#ddd'
-          });
-        }
-      ).to.throw(RangeError, 'Invalid shape colors');
+            expect(() => {
+                new Circle({
+                    fillColorValue: 'ddd',
+                    borderColorValue: '#ddd'
+                });
+            }
+            ).to.throw(RangeError, 'Invalid shape colors');
 
-      expect(() => {
-          new Circle({
-            fillColorValue: '#ddd',
-            borderColorValue: '#ddd'
-          });
-        }
-      ).to.not.throw();
+            expect(() => {
+                new Circle({
+                    fillColorValue: '#ddd',
+                    borderColorValue: '#ddd'
+                });
+            }
+            ).to.not.throw();
 
-      expect(() => {
-          new Circle({
-            fillColorValue: '#ddd',
-            borderColorValue: '#ddd'
-          }, {
-            radius: -10,
-            centerX: 20,
-            centerY: 200
-          });
-        }
-      ).to.throw(RangeError);
+            expect(() => {
+                new Circle({
+                    fillColorValue: '#ddd',
+                    borderColorValue: '#ddd'
+                }, {
+                        radius: -10,
+                        centerX: 20,
+                        centerY: 200
+                    });
+            }
+            ).to.throw(RangeError);
+        });
+
+        it('Init with default values', () => {
+
+            const circle = new Circle();
+
+            assert.equal(circle.radius, 50);
+            assert.equal(circle.centerX, 200);
+            assert.equal(circle.centerY, 200);
+            assert.equal(circle.getFillColor(), '#fff');
+            assert.equal(circle.getBorderColor(), '#000');
+        });
+
+        it('Init with optional values', () => {
+
+            const circle = new Circle({
+                fillColorValue: '#ccc',
+                borderColorValue: '#000'
+            }, {
+                    radius: 10,
+                    centerX: 20,
+                    centerY: 200
+                });
+
+            assert.equal(circle.radius, 10);
+            assert.equal(circle.centerX, 20);
+            assert.equal(circle.centerY, 200);
+            assert.equal(circle.fillColor, '#ccc');
+            assert.equal(circle.borderColor, '#000');
+        });
+
     });
 
-    it('Init with default values', () => {
+    describe('Calculations', () => {
 
-      const circle = new Circle();
+        const circle = new Circle({
+            fillColorValue: '#ccc',
+            borderColorValue: '#000'
+        }, {
+                radius: 10,
+                centerX: 20,
+                centerY: 200
+            });
 
-      assert.equal(circle.radius, 50);
-      assert.equal(circle.centerX, 200);
-      assert.equal(circle.centerY, 200);
-      assert.equal(circle.getFillColor(), '#fff');
-      assert.equal(circle.getBorderColor(), '#000');
+        it('Calculate perimeter', () => {
+            assert.typeOf(circle.calculatePerimeter(), 'number');
+            assert.equal(circle.calculatePerimeter(), 62.83);
+        });
+
+        it('Calculate area', () => {
+            assert.typeOf(circle.calculateArea(), 'number');
+            assert.equal(circle.calculateArea(), 986.96)
+        });
     });
-
-    it('Init with optional values', () => {
-
-      const circle = new Circle({
-        fillColorValue: '#ccc',
-        borderColorValue: '#000'
-      }, {
-        radius: 10,
-        centerX: 20,
-        centerY: 200
-      });
-
-      assert.equal(circle.radius, 10);
-      assert.equal(circle.centerX, 20);
-      assert.equal(circle.centerY, 200);
-      assert.equal(circle.fillColor, '#ccc');
-      assert.equal(circle.borderColor, '#000');
-    });
-
-  });
-
-  describe('Calculations', () => {
-
-    const circle = new Circle({
-      fillColorValue: '#ccc',
-      borderColorValue: '#000'
-    }, {
-      radius: 10,
-      centerX: 20,
-      centerY: 200
-    });
-
-    it('Calculate perimeter', () => {
-      assert.typeOf(circle.calculatePerimeter(), 'number');
-      assert.equal(circle.calculatePerimeter(), 62.83);
-    });
-
-    it('Calculate area', () => {
-      assert.typeOf(circle.calculateArea(), 'number');
-      assert.equal(circle.calculateArea(), 986.96)
-    });
-  });
 
 
 });
 
-/*
 
+describe('Rectangle testing', () => {
 
-describe('Rectangle testing', function () {
+    describe('Init Rectangle', () => {
 
-    describe('Init rectangle', function () {
+        it('Init with wrong values', () => {
 
-        it('Init with wrong values', function () {
-
-            expect(
-                function () {
-                    new Rectangle({
-                        wrongparam: '#ddd',
-                        borderColorValue: '#ddd'
-                    });
-                }
+            expect(() => {
+                new Rectangle({
+                    wrongparam: '#ddd',
+                    borderColorValue: '#ddd'
+                });
+            }
             ).to.throw(ReferenceError, 'Shape colors params required');
 
-            expect(
-                function () {
-                    new Rectangle({
-                        fillColorValue: 'ddd',
-                        borderColorValue: '#ddd'
-                    });
-                }
+            expect(() => {
+                new Rectangle({
+                    fillColorValue: 'ddd',
+                    borderColorValue: '#ddd'
+                });
+            }
             ).to.throw(RangeError, 'Invalid shape colors');
 
-            expect(
-                function () {
-                    new Rectangle({
-                        fillColorValue: '#ddd',
-                        borderColorValue: '#ddd'
-                    });
-                }
+            expect(() => {
+                new Rectangle({
+                    fillColorValue: '#ddd',
+                    borderColorValue: '#ddd'
+                });
+            }
             ).to.not.throw();
 
-            expect(
-                function () {
-                    new Rectangle(
-                        { fillColorValue: '#ddd', borderColorValue: '#ddd' },
-                        { x1: -10, y1: 20, x2: 200, y2: -1 }
-                    );
-                }
+            expect(() => {
+                new Rectangle({
+                    fillColorValue: '#ddd',
+                    borderColorValue: '#ddd'
+                }, { x1: -10, y1: 20, x2: 50, y2: 30 });
+            }
             ).to.throw(RangeError, 'Invalid rectangle params');
-
         });
 
-        it('Init with default values', function () {
+        it('Init with default values', () => {
 
             const rectangle = new Rectangle();
             assert.equal(rectangle.x1, 10);
             assert.equal(rectangle.y2, 20);
             assert.equal(rectangle.x2, 40);
             assert.equal(rectangle.y2, 20);
-            assert.equal(rectangle.fillColor, '#fff');
-            assert.equal(rectangle.borderColor, '#000');
+            assert.equal(circle.getFillColor(), '#fff');
+            assert.equal(circle.getBorderColor(), '#000');
         });
 
-        it('Init with optional values', function () {
+        it('Init with optional values', () => {
 
             const rectangle = new Rectangle(
                 { fillColorValue: '#ccc', borderColorValue: '#000' },
@@ -174,8 +164,8 @@ describe('Rectangle testing', function () {
             assert.equal(rectangle.y2, 200);
             assert.equal(rectangle.x2, 300);
             assert.equal(rectangle.y2, 200);
-            assert.equal(rectangle.fillColor, '#ccc');
-            assert.equal(rectangle.borderColor, '#000');
+            assert.equal(circle.getFillColor(), '#ccc');
+            assert.equal(circle.getBorderColor(), '#000');
         });
 
     });
@@ -203,8 +193,10 @@ describe('Rectangle testing', function () {
         });
     });
 
+
 });
 
+/*
 describe('Triangle testing', function () {
 
     describe('Init triangle', function () {
