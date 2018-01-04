@@ -132,10 +132,7 @@
 87
 88
 89
-90
-91
-92
-93</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+90</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -143,7 +140,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -172,12 +168,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -229,13 +223,12 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
 &nbsp;
-const CShape = require('./shape');
+const Shape = require('./shape');
 &nbsp;
-<span class="fstat-no" title="function not covered" >function CTriangle(shapeColorParams, shapeParams) {</span>
-<span class="cstat-no" title="statement not covered" >    CShape.apply(this, arguments);</span>
+<span class="fstat-no" title="function not covered" >function Triangle(shapeColorParams, shapeParams) {</span>
+<span class="cstat-no" title="statement not covered" >    Shape.apply(this, arguments);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (shapeParams === undefined)</span>
-    {
+<span class="cstat-no" title="statement not covered" >    if (shapeParams === undefined) {</span>
 <span class="cstat-no" title="statement not covered" >        shapeParams = {</span>
             x1: 10,
             y1: 20,
@@ -256,27 +249,25 @@ const CShape = require('./shape');
 <span class="cstat-no" title="statement not covered" >    this.y3 = shapeParams.y3;</span>
 }
 &nbsp;
-CTriangle.prototype = Object.create(CShape.prototype);
-CTriangle.prototype.constructor = CTriangle;
+Triangle.prototype = Object.create(Shape.prototype);
+Triangle.prototype.constructor = Triangle;
 &nbsp;
 &nbsp;
-CTriangle.prototype.validateParams = <span class="fstat-no" title="function not covered" >function(shapeParams) {</span>
+Triangle.prototype.validateParams = <span class="fstat-no" title="function not covered" >function (shapeParams) {</span>
 <span class="cstat-no" title="statement not covered" >    if (!shapeParams.hasOwnProperty('x1') || !shapeParams.hasOwnProperty('y1') ||</span>
         !shapeParams.hasOwnProperty('x2') || !shapeParams.hasOwnProperty('y2') ||
-        !shapeParams.hasOwnProperty('x3') || !shapeParams.hasOwnProperty('y3'))
-    {
+        !shapeParams.hasOwnProperty('x3') || !shapeParams.hasOwnProperty('y3')) {
 <span class="cstat-no" title="statement not covered" >        throw ReferenceError("Triangle params required");</span>
     }
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    if (shapeParams.x1 &lt; 0 || shapeParams.y1 &lt; 0 ||</span>
         shapeParams.x2 &lt; 0 || shapeParams.y2 &lt; 0 ||
-        shapeParams.x3 &lt; 0 || shapeParams.y3 &lt; 0)
-    {
+        shapeParams.x3 &lt; 0 || shapeParams.y3 &lt; 0) {
 <span class="cstat-no" title="statement not covered" >        throw RangeError("Invalid triangle params");</span>
     }
 };
 &nbsp;
-CTriangle.prototype.calculateSides = <span class="fstat-no" title="function not covered" >function() {</span>
+Triangle.prototype.calculateSides = <span class="fstat-no" title="function not covered" >function () {</span>
 <span class="cstat-no" title="statement not covered" >    return [</span>
         Math.sqrt(Math.sqrt(Math.abs(this.x1 - this.x2)) + Math.sqrt(Math.abs(this.y1 - this.y2))),
         Math.sqrt(Math.sqrt(Math.abs(this.x2 - this.x3)) + Math.sqrt(Math.abs(this.y2 - this.y3))),
@@ -284,24 +275,24 @@ CTriangle.prototype.calculateSides = <span class="fstat-no" title="function not 
     ];
 };
 &nbsp;
-CTriangle.prototype.calculateArea = <span class="fstat-no" title="function not covered" >function() {</span>
+Triangle.prototype.calculateArea = <span class="fstat-no" title="function not covered" >function () {</span>
 <span class="cstat-no" title="statement not covered" >    let [a, b, c] = this.calculateSides();</span>
 <span class="cstat-no" title="statement not covered" >    let perimeter = this.calculatePerimeter();</span>
 <span class="cstat-no" title="statement not covered" >    return parseFloat((Math.sqrt(perimeter * (perimeter - a) * (perimeter - b) * (perimeter - c))).toFixed(2));</span>
 };
 &nbsp;
-CTriangle.prototype.calculatePerimeter = <span class="fstat-no" title="function not covered" >function() {</span>
+Triangle.prototype.calculatePerimeter = <span class="fstat-no" title="function not covered" >function () {</span>
 <span class="cstat-no" title="statement not covered" >    let [a, b, c] = this.calculateSides();</span>
 <span class="cstat-no" title="statement not covered" >    return parseFloat((2 * (a + b + c)).toFixed(2));</span>
 };
 &nbsp;
-CTriangle.prototype.draw = <span class="fstat-no" title="function not covered" >function(canvasAreaId) {</span>
+Triangle.prototype.draw = <span class="fstat-no" title="function not covered" >function (canvasAreaId) {</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    this.canvasAreaId = canvasAreaId;</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    var canvas = document.getElementById(this.canvasAreaId);</span>
 <span class="cstat-no" title="statement not covered" >    var context = canvas.getContext('2d');</span>
-    
+&nbsp;
 <span class="cstat-no" title="statement not covered" >    context.clearRect(0, 0, canvas.width, canvas.height);</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    context.beginPath();</span>
@@ -318,14 +309,14 @@ CTriangle.prototype.draw = <span class="fstat-no" title="function not covered" >
 <span class="cstat-no" title="statement not covered" >    context.fill();</span>
 };
 &nbsp;
-module.exports = CTriangle;
+module.exports = Triangle;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Jan 02 2018 14:47:41 GMT+0300 (MSK)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Jan 04 2018 11:16:15 GMT+0300 (MSK)
 </div>
 </div>
 <script src="../prettify.js"></script>

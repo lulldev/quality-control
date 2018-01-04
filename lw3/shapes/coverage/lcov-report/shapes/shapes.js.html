@@ -119,19 +119,9 @@
 74
 75
 76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+77</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -150,7 +140,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -166,7 +155,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -177,28 +165,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -215,8 +197,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
 &nbsp;
-<span class="fstat-no" title="function not covered" >function ShapeProgram(canvasAreaId)</span>
-{
+<span class="fstat-no" title="function not covered" >function ShapeProgram(canvasAreaId) {</span>
 <span class="cstat-no" title="statement not covered" >    canvasAreaId === undefined ?</span>
         this.canvasAreaId = "canvas-area" : this.canvasAreaId = canvasArea;
 &nbsp;
@@ -233,8 +214,7 @@
  Loader solution by joshuamabina
  http://stackoverflow.com/questions/950087/how-do-i-include-a-javascript-file-in-another-javascript-file
  */
-ShapeProgram.prototype.LoadScript = <span class="fstat-no" title="function not covered" >function (url, callback)</span>
-{
+ShapeProgram.prototype.LoadScript = <span class="fstat-no" title="function not covered" >function (url, callback) {</span>
     // Adding the script tag to the head as suggested before
 <span class="cstat-no" title="statement not covered" >    var head = document.getElementsByTagName('head')[0];</span>
 <span class="cstat-no" title="statement not covered" >    var script = document.createElement('script');</span>
@@ -250,8 +230,7 @@ ShapeProgram.prototype.LoadScript = <span class="fstat-no" title="function not c
 <span class="cstat-no" title="statement not covered" >    head.appendChild(script);</span>
 };
 &nbsp;
-ShapeProgram.prototype.GetFormCollection =  <span class="fstat-no" title="function not covered" >function ()</span>
-{
+ShapeProgram.prototype.GetFormCollection = <span class="fstat-no" title="function not covered" >function () {</span>
 <span class="cstat-no" title="statement not covered" >    return {</span>
         colorForm: document.getElementsByClassName('color-form')[0],
         circleForm: document.getElementsByClassName('circle-form')[0],
@@ -261,31 +240,25 @@ ShapeProgram.prototype.GetFormCollection =  <span class="fstat-no" title="functi
     };
 };
 &nbsp;
-ShapeProgram.prototype.ResetForm = <span class="fstat-no" title="function not covered" >function ()</span>
-{
+ShapeProgram.prototype.ResetForm = <span class="fstat-no" title="function not covered" >function () {</span>
 <span class="cstat-no" title="statement not covered" >    let controlForms = this.GetFormCollection();</span>
-<span class="cstat-no" title="statement not covered" >    for (let formName in controlForms)</span>
-    {
+<span class="cstat-no" title="statement not covered" >    for (let formName in controlForms) {</span>
 <span class="cstat-no" title="statement not covered" >        controlForms[formName].style.display = "none";</span>
     }
 };
 &nbsp;
-ShapeProgram.prototype.UpdateAreaAndPerimeter = <span class="fstat-no" title="function not covered" >function (area, perimeter)</span>
-{
+ShapeProgram.prototype.UpdateAreaAndPerimeter = <span class="fstat-no" title="function not covered" >function (area, perimeter) {</span>
 <span class="cstat-no" title="statement not covered" >    document.getElementsByClassName('shape-area')[0].innerHTML = area;</span>
 <span class="cstat-no" title="statement not covered" >    document.getElementsByClassName('shape-perimeter')[0].innerHTML = perimeter;</span>
 };
 &nbsp;
-ShapeProgram.prototype.DisplayShape = <span class="fstat-no" title="function not covered" >function (shapeObj, shapeColorParams, shapeParams)</span>
-{
+ShapeProgram.prototype.DisplayShape = <span class="fstat-no" title="function not covered" >function (shapeObj, shapeColorParams, shapeParams) {</span>
 <span class="cstat-no" title="statement not covered" >    let shape;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    try</span>
-    {
+<span class="cstat-no" title="statement not covered" >    try {</span>
 <span class="cstat-no" title="statement not covered" >        shape = new shapeObj(shapeColorParams, shapeParams);</span>
     }
-    catch (e)
-    {
+    catch (e) {
 <span class="cstat-no" title="statement not covered" >        alert(e.message);</span>
 <span class="cstat-no" title="statement not covered" >        return;</span>
     }
@@ -304,7 +277,7 @@ ShapeProgram.prototype.DisplayShape = <span class="fstat-no" title="function not
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Jan 02 2018 14:47:41 GMT+0300 (MSK)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Jan 04 2018 10:58:41 GMT+0300 (MSK)
 </div>
 </div>
 <script src="../prettify.js"></script>

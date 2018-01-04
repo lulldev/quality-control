@@ -1,107 +1,114 @@
 'use strict'
 
-const CCircle = require('./circle');
-const CRectangle = require('./rectangle');
-const CTriangle = require('./triangle');
+const Circle = require('./circle');
+// const Rectangle = require('./rectangle');
+// const Triangle = require('./triangle');
 
 // TODO: test circle and make 100% coverage 
 // now tests not working. throws problem. maybe rewrite to es6
 
-describe("CCircle testing", function () {
+describe("Circle testing", () => {
 
-    describe("Init circle", function () {
+  describe("Init circle", () => {
 
-        it("Init with wrong values", function () {
+    it("Init with wrong values", () => {
 
-            expect(
-                function () {
-                    new CCircle({
-                        wrongparam: '#ddd',
-                        borderColorValue: '#ddd'
-                    });
-                }
-            ).to.throw(ReferenceError, 'Shape colors params required');
+      expect(() => {
+          new Circle({
+            wrongparam: '#ddd',
+            borderColorValue: '#ddd'
+          });
+        }
+      ).to.throw(ReferenceError, 'Shape colors params required');
 
-            expect(
-                function () {
-                    new CCircle({
-                        fillColorValue: 'ddd',
-                        borderColorValue: '#ddd'
-                    });
-                }
-            ).to.throw(RangeError, 'Invalid shape colors');
+      expect(() => {
+          new Circle({
+            fillColorValue: 'ddd',
+            borderColorValue: '#ddd'
+          });
+        }
+      ).to.throw(RangeError, 'Invalid shape colors');
 
-            expect(
-                function () {
-                    new CCircle({
-                        fillColorValue: '#ddd',
-                        borderColorValue: '#ddd'
-                    });
-                }
-            ).to.not.throw();
+      expect(() => {
+          new Circle({
+            fillColorValue: '#ddd',
+            borderColorValue: '#ddd'
+          });
+        }
+      ).to.not.throw();
 
-            expect(
-                function () {
-                    new CCircle(
-                        { fillColorValue: '#ddd', borderColorValue: '#ddd' },
-                        { radius: -10, centerX: 20, centerY: 200 }
-                    );
-                }
-            ).to.throw(RangeError);
-
-        });
-
-        it("Init with default values", function () {
-
-            var circle = new CCircle();
-
-            assert.equal(circle.radius, 50);
-            assert.equal(circle.centerX, 200);
-            assert.equal(circle.centerY, 200);
-            assert.equal(circle.fillColor, '#fff');
-            assert.equal(circle.borderColor, '#000');
-        });
-
-        it("Init with optional values", function () {
-
-            var circle = new CCircle(
-                { fillColorValue: '#ccc', borderColorValue: '#000' },
-                { radius: 10, centerX: 20, centerY: 200 }
-            );
-
-            assert.equal(circle.radius, 10);
-            assert.equal(circle.centerX, 20);
-            assert.equal(circle.centerY, 200);
-            assert.equal(circle.fillColor, '#ccc');
-            assert.equal(circle.borderColor, '#000');
-        });
-
+      expect(() => {
+          new Circle({
+            fillColorValue: '#ddd',
+            borderColorValue: '#ddd'
+          }, {
+            radius: -10,
+            centerX: 20,
+            centerY: 200
+          });
+        }
+      ).to.throw(RangeError);
     });
 
-    describe("Calculations", function () {
+    it("Init with default values", () => {
 
-        var circle = new CCircle(
-            { fillColorValue: '#ccc', borderColorValue: '#000' },
-            { radius: 10, centerX: 20, centerY: 200 }
-        );
+      const circle = new Circle();
 
-        it("Calculate perimeter", function () {
-            assert.typeOf(circle.calculatePerimeter(), 'number');
-            assert.equal(circle.calculatePerimeter(), 62.83);
-        });
-
-        it("Calculate area", function () {
-            assert.typeOf(circle.calculateArea(), 'number');
-            assert.equal(circle.calculateArea(), 986.96)
-        });
+      assert.equal(circle.radius, 50);
+      assert.equal(circle.centerX, 200);
+      assert.equal(circle.centerY, 200);
+      assert.equal(circle.fillColor, '#fff');
+      assert.equal(circle.borderColor, '#000');
     });
+
+    it("Init with optional values", () => {
+
+      const circle = new Circle({
+        fillColorValue: '#ccc',
+        borderColorValue: '#000'
+      }, {
+        radius: 10,
+        centerX: 20,
+        centerY: 200
+      });
+
+      assert.equal(circle.radius, 10);
+      assert.equal(circle.centerX, 20);
+      assert.equal(circle.centerY, 200);
+      assert.equal(circle.fillColor, '#ccc');
+      assert.equal(circle.borderColor, '#000');
+    });
+
+  });
+
+  describe("Calculations", () => {
+
+    const circle = new Circle({
+      fillColorValue: '#ccc',
+      borderColorValue: '#000'
+    }, {
+      radius: 10,
+      centerX: 20,
+      centerY: 200
+    });
+
+    it("Calculate perimeter", () => {
+      assert.typeOf(circle.calculatePerimeter(), 'number');
+      assert.equal(circle.calculatePerimeter(), 62.83);
+    });
+
+    it("Calculate area", () => {
+      assert.typeOf(circle.calculateArea(), 'number');
+      assert.equal(circle.calculateArea(), 986.96)
+    });
+  });
 
 });
 
 /*
 
 
-describe("CRectangle testing", function () {
+describe("Rectangle testing", function () {
 
     describe("Init rectangle", function () {
 
@@ -109,7 +116,7 @@ describe("CRectangle testing", function () {
 
             expect(
                 function () {
-                    new CRectangle({
+                    new Rectangle({
                         wrongparam: '#ddd',
                         borderColorValue: '#ddd'
                     });
@@ -118,7 +125,7 @@ describe("CRectangle testing", function () {
 
             expect(
                 function () {
-                    new CRectangle({
+                    new Rectangle({
                         fillColorValue: 'ddd',
                         borderColorValue: '#ddd'
                     });
@@ -127,7 +134,7 @@ describe("CRectangle testing", function () {
 
             expect(
                 function () {
-                    new CRectangle({
+                    new Rectangle({
                         fillColorValue: '#ddd',
                         borderColorValue: '#ddd'
                     });
@@ -136,7 +143,7 @@ describe("CRectangle testing", function () {
 
             expect(
                 function () {
-                    new CRectangle(
+                    new Rectangle(
                         { fillColorValue: '#ddd', borderColorValue: '#ddd' },
                         { x1: -10, y1: 20, x2: 200, y2: -1 }
                     );
@@ -147,7 +154,7 @@ describe("CRectangle testing", function () {
 
         it("Init with default values", function () {
 
-            var rectangle = new CRectangle();
+            const rectangle = new Rectangle();
             assert.equal(rectangle.x1, 10);
             assert.equal(rectangle.y2, 20);
             assert.equal(rectangle.x2, 40);
@@ -158,7 +165,7 @@ describe("CRectangle testing", function () {
 
         it("Init with optional values", function () {
 
-            var rectangle = new CRectangle(
+            const rectangle = new Rectangle(
                 { fillColorValue: '#ccc', borderColorValue: '#000' },
                 { x1: 100, y1: 200, x2: 300, y2: 200 }
             );
@@ -174,7 +181,7 @@ describe("CRectangle testing", function () {
 
     describe("Calculations", function () {
 
-        var rectangle = new CRectangle(
+        const rectangle = new Rectangle(
             { fillColorValue: '#ccc', borderColorValue: '#000' },
             { x1: 10, y1: 20, x2: 50, y2: 30 }
         );
@@ -197,7 +204,7 @@ describe("CRectangle testing", function () {
 
 });
 
-describe("CTriangle testing", function () {
+describe("Triangle testing", function () {
 
     describe("Init triangle", function () {
 
@@ -205,7 +212,7 @@ describe("CTriangle testing", function () {
 
             expect(
                 function () {
-                    new CTriangle({
+                    new Triangle({
                         wrongparam: '#ddd',
                         borderColorValue: '#ddd'
                     });
@@ -214,7 +221,7 @@ describe("CTriangle testing", function () {
 
             expect(
                 function () {
-                    new CTriangle({
+                    new Triangle({
                         fillColorValue: 'ddd',
                         borderColorValue: '#ddd'
                     });
@@ -223,7 +230,7 @@ describe("CTriangle testing", function () {
 
             expect(
                 function () {
-                    new CTriangle({
+                    new Triangle({
                         fillColorValue: '#ddd',
                         borderColorValue: '#ddd'
                     });
@@ -232,7 +239,7 @@ describe("CTriangle testing", function () {
 
             expect(
                 function () {
-                    new CTriangle(
+                    new Triangle(
                         { fillColorValue: '#ddd', borderColorValue: '#ddd' },
                         { x1: -10, y1: 20, x2: 200, y2: -1, x3: 20, y3: 100 }
                     );
@@ -243,7 +250,7 @@ describe("CTriangle testing", function () {
 
         it("Init with default values", function () {
 
-            var triangle = new CTriangle();
+            const triangle = new Triangle();
             assert.equal(triangle.x1, 10);
             assert.equal(triangle.y2, 20);
             assert.equal(triangle.x2, 40);
@@ -256,7 +263,7 @@ describe("CTriangle testing", function () {
 
         it("Init with optional values", function () {
 
-            var triangle = new CTriangle(
+            const triangle = new Triangle(
                 { fillColorValue: '#ccc', borderColorValue: '#000' },
                 { x1: 100, y1: 200, x2: 300, y2: 200, x3: 400, y3: 500 }
             );
@@ -275,7 +282,7 @@ describe("CTriangle testing", function () {
 
     describe("Calculations", function () {
 
-        var triangle = new CTriangle('#ccc', '#000', 10, 20, 50, 30, 50, 60);
+        const triangle = new Triangle('#ccc', '#000', 10, 20, 50, 30, 50, 60);
 
         it("Calculate sides", function () {
             assert.typeOf(triangle.calculateSides(), 'array');

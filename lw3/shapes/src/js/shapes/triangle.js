@@ -1,12 +1,11 @@
 'use strict';
 
-const CShape = require('./shape');
+const Shape = require('./shape');
 
-function CTriangle(shapeColorParams, shapeParams) {
-    CShape.apply(this, arguments);
+function Triangle(shapeColorParams, shapeParams) {
+    Shape.apply(this, arguments);
 
-    if (shapeParams === undefined)
-    {
+    if (shapeParams === undefined) {
         shapeParams = {
             x1: 10,
             y1: 20,
@@ -27,27 +26,25 @@ function CTriangle(shapeColorParams, shapeParams) {
     this.y3 = shapeParams.y3;
 }
 
-CTriangle.prototype = Object.create(CShape.prototype);
-CTriangle.prototype.constructor = CTriangle;
+Triangle.prototype = Object.create(Shape.prototype);
+Triangle.prototype.constructor = Triangle;
 
 
-CTriangle.prototype.validateParams = function(shapeParams) {
+Triangle.prototype.validateParams = function (shapeParams) {
     if (!shapeParams.hasOwnProperty('x1') || !shapeParams.hasOwnProperty('y1') ||
         !shapeParams.hasOwnProperty('x2') || !shapeParams.hasOwnProperty('y2') ||
-        !shapeParams.hasOwnProperty('x3') || !shapeParams.hasOwnProperty('y3'))
-    {
+        !shapeParams.hasOwnProperty('x3') || !shapeParams.hasOwnProperty('y3')) {
         throw ReferenceError("Triangle params required");
     }
 
     if (shapeParams.x1 < 0 || shapeParams.y1 < 0 ||
         shapeParams.x2 < 0 || shapeParams.y2 < 0 ||
-        shapeParams.x3 < 0 || shapeParams.y3 < 0)
-    {
+        shapeParams.x3 < 0 || shapeParams.y3 < 0) {
         throw RangeError("Invalid triangle params");
     }
 };
 
-CTriangle.prototype.calculateSides = function() {
+Triangle.prototype.calculateSides = function () {
     return [
         Math.sqrt(Math.sqrt(Math.abs(this.x1 - this.x2)) + Math.sqrt(Math.abs(this.y1 - this.y2))),
         Math.sqrt(Math.sqrt(Math.abs(this.x2 - this.x3)) + Math.sqrt(Math.abs(this.y2 - this.y3))),
@@ -55,24 +52,24 @@ CTriangle.prototype.calculateSides = function() {
     ];
 };
 
-CTriangle.prototype.calculateArea = function() {
+Triangle.prototype.calculateArea = function () {
     let [a, b, c] = this.calculateSides();
     let perimeter = this.calculatePerimeter();
     return parseFloat((Math.sqrt(perimeter * (perimeter - a) * (perimeter - b) * (perimeter - c))).toFixed(2));
 };
 
-CTriangle.prototype.calculatePerimeter = function() {
+Triangle.prototype.calculatePerimeter = function () {
     let [a, b, c] = this.calculateSides();
     return parseFloat((2 * (a + b + c)).toFixed(2));
 };
 
-CTriangle.prototype.draw = function(canvasAreaId) {
+Triangle.prototype.draw = function (canvasAreaId) {
 
     this.canvasAreaId = canvasAreaId;
 
     var canvas = document.getElementById(this.canvasAreaId);
     var context = canvas.getContext('2d');
-    
+
     context.clearRect(0, 0, canvas.width, canvas.height);
 
     context.beginPath();
@@ -89,4 +86,4 @@ CTriangle.prototype.draw = function(canvasAreaId) {
     context.fill();
 };
 
-module.exports = CTriangle;
+module.exports = Triangle;

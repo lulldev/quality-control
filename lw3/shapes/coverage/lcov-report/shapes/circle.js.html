@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">58.06% </span>
+        <span class="strong">63.64% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>18/31</span>
+        <span class='fraction'>21/33</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">91.67% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>11/12</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">40% </span>
+        <span class="strong">80% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/5</span>
+        <span class='fraction'>4/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">58.06% </span>
+        <span class="strong">63.64% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>18/31</span>
+        <span class='fraction'>21/33</span>
       </div>
     </div>
   </div>
@@ -104,10 +104,7 @@
 59
 60
 61
-62
-63
-64
-65</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+62</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -115,7 +112,6 @@
 <span class="cline-any cline-yes">7×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -125,9 +121,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5×</span>
-<span class="cline-any cline-yes">5×</span>
-<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
@@ -136,22 +132,20 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">5×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
@@ -173,13 +167,12 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
 &nbsp;
-const CShape = require('./shape');
+const Shape = require('./shape');
 &nbsp;
-function CCircle(shapeColorParams, shapeParams) {
-    CShape.apply(this, arguments);
+function Circle(shapeColorParams, shapeParams) {
+    Shape.apply(this, arguments);
 &nbsp;
-    if (shapeParams === undefined)
-    {
+    if (shapeParams === undefined) {
         shapeParams = {
             radius: 50,
             centerX: 200,
@@ -194,31 +187,29 @@ function CCircle(shapeColorParams, shapeParams) {
     this.centerY = shapeParams.centerY;
 }
 &nbsp;
-CCircle.prototype = Object.create(CShape.prototype);
-CCircle.prototype.constructor = CCircle;
+Circle.prototype = Object.create(Shape.prototype);
+Circle.prototype.constructor = Circle;
 &nbsp;
-CCircle.prototype.validateParams = function(shapeParams) {
+Circle.prototype.validateParams = function (shapeParams) {
     <span class="missing-if-branch" title="if path not taken" >I</span>if (!shapeParams.hasOwnProperty('radius') || !shapeParams.hasOwnProperty('centerX') ||
-            !shapeParams.hasOwnProperty('centerY'))
-    {
-        // throw ReferenceError("Circle params required");
+        !shapeParams.hasOwnProperty('centerY')) {
+<span class="cstat-no" title="statement not covered" >        throw ReferenceError("Circle params required");</span>
     }
 &nbsp;
-    if (shapeParams.radius &lt; 0 || shapeParams.centerX &lt; 0 || shapeParams.centerY &lt; 0)
-    {
-        // throw RangeError("Invalid circle params");
+    if (shapeParams.radius &lt; 0 || shapeParams.centerX &lt; 0 || shapeParams.centerY &lt; 0) {
+        throw RangeError("Invalid circle params");
     }
 };
 &nbsp;
-CCircle.prototype.calculateArea = <span class="fstat-no" title="function not covered" >function() {</span>
-<span class="cstat-no" title="statement not covered" >    return parseFloat(Math.pow(Math.PI * this.radius, 2).toFixed(2));</span>
+Circle.prototype.calculateArea = function () {
+    return parseFloat(Math.pow(Math.PI * this.radius, 2).toFixed(2));
 };
 &nbsp;
-CCircle.prototype.calculatePerimeter = <span class="fstat-no" title="function not covered" >function() {</span>
-<span class="cstat-no" title="statement not covered" >    return parseFloat((2 * Math.PI * this.radius).toFixed(2));</span>
+Circle.prototype.calculatePerimeter = function () {
+    return parseFloat((2 * Math.PI * this.radius).toFixed(2));
 };
 &nbsp;
-CCircle.prototype.draw = <span class="fstat-no" title="function not covered" >function(canvasAreaId) {</span>
+Circle.prototype.draw = <span class="fstat-no" title="function not covered" >function (canvasAreaId) {</span>
 <span class="cstat-no" title="statement not covered" >    this.canvasAreaId = canvasAreaId;</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    var canvas = document.getElementById(this.canvasAreaId);</span>
@@ -234,14 +225,14 @@ CCircle.prototype.draw = <span class="fstat-no" title="function not covered" >fu
 <span class="cstat-no" title="statement not covered" >    context.stroke();</span>
 };
 &nbsp;
-module.exports = CCircle;
+module.exports = Circle;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Jan 02 2018 14:47:41 GMT+0300 (MSK)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Jan 04 2018 11:16:15 GMT+0300 (MSK)
 </div>
 </div>
 <script src="../prettify.js"></script>

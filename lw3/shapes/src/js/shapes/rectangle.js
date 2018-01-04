@@ -1,12 +1,11 @@
 'use strict';
 
-const CShape = require('./shape');
+const Shape = require('./shape');
 
-function CRectangle(shapeColorParams, shapeParams) {
-    CShape.apply(this, arguments);
+function Rectangle(shapeColorParams, shapeParams) {
+    Shape.apply(this, arguments);
 
-    if (shapeParams === undefined)
-    {
+    if (shapeParams === undefined) {
         shapeParams = {
             x1: 10,
             y1: 20,
@@ -23,39 +22,37 @@ function CRectangle(shapeColorParams, shapeParams) {
     this.y2 = shapeParams.y2;
 }
 
-CRectangle.prototype = Object.create(CShape.prototype);
-CRectangle.prototype.constructor = CRectangle;
+Rectangle.prototype = Object.create(Shape.prototype);
+Rectangle.prototype.constructor = Rectangle;
 
 
-CRectangle.prototype.validateParams = function(shapeParams) {
+Rectangle.prototype.validateParams = function (shapeParams) {
     if (!shapeParams.hasOwnProperty('x1') || !shapeParams.hasOwnProperty('y1') ||
-        !shapeParams.hasOwnProperty('x2') || !shapeParams.hasOwnProperty('y2'))
-    {
+        !shapeParams.hasOwnProperty('x2') || !shapeParams.hasOwnProperty('y2')) {
         throw ReferenceError("Rectangle params required");
     }
 
     if (shapeParams.x1 < 0 || shapeParams.y1 < 0 ||
-            shapeParams.x2 < 0 || shapeParams.y2 < 0)
-    {
+        shapeParams.x2 < 0 || shapeParams.y2 < 0) {
         throw RangeError("Invalid rectangle params");
     }
 };
 
-CRectangle.prototype.calculateSides = function() {
+Rectangle.prototype.calculateSides = function () {
     return [Math.abs(this.x2 - this.x1), Math.abs(this.y2 - this.y1)];
 };
 
-CRectangle.prototype.calculateArea = function() {
+Rectangle.prototype.calculateArea = function () {
     let [a, b] = this.calculateSides();
     return parseFloat((a * b).toFixed(2));
 };
 
-CRectangle.prototype.calculatePerimeter = function() {
+Rectangle.prototype.calculatePerimeter = function () {
     let [a, b] = this.calculateSides();
     return parseFloat((2 * (a + b)).toFixed(2));
 };
 
-CRectangle.prototype.draw = function(canvasAreaId) {
+Rectangle.prototype.draw = function (canvasAreaId) {
 
     this.canvasAreaId = canvasAreaId;
 
@@ -75,4 +72,4 @@ CRectangle.prototype.draw = function(canvasAreaId) {
     context.strokeRect(this.x1, this.y1, a, b);
 };
 
-module.exports = CRectangle;
+module.exports = Rectangle;

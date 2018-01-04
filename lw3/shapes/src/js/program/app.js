@@ -1,7 +1,6 @@
 'use strict';
 
-function ShapeProgram(canvasAreaId)
-{
+function ShapeProgram(canvasAreaId) {
     canvasAreaId === undefined ?
         this.canvasAreaId = "canvas-area" : this.canvasAreaId = canvasArea;
 
@@ -18,8 +17,7 @@ function ShapeProgram(canvasAreaId)
  Loader solution by joshuamabina
  http://stackoverflow.com/questions/950087/how-do-i-include-a-javascript-file-in-another-javascript-file
  */
-ShapeProgram.prototype.LoadScript = function (url, callback)
-{
+ShapeProgram.prototype.LoadScript = function (url, callback) {
     // Adding the script tag to the head as suggested before
     var head = document.getElementsByTagName('head')[0];
     var script = document.createElement('script');
@@ -35,8 +33,7 @@ ShapeProgram.prototype.LoadScript = function (url, callback)
     head.appendChild(script);
 };
 
-ShapeProgram.prototype.GetFormCollection =  function ()
-{
+ShapeProgram.prototype.GetFormCollection = function () {
     return {
         colorForm: document.getElementsByClassName('color-form')[0],
         circleForm: document.getElementsByClassName('circle-form')[0],
@@ -46,31 +43,25 @@ ShapeProgram.prototype.GetFormCollection =  function ()
     };
 };
 
-ShapeProgram.prototype.ResetForm = function ()
-{
+ShapeProgram.prototype.ResetForm = function () {
     let controlForms = this.GetFormCollection();
-    for (let formName in controlForms)
-    {
+    for (let formName in controlForms) {
         controlForms[formName].style.display = "none";
     }
 };
 
-ShapeProgram.prototype.UpdateAreaAndPerimeter = function (area, perimeter)
-{
+ShapeProgram.prototype.UpdateAreaAndPerimeter = function (area, perimeter) {
     document.getElementsByClassName('shape-area')[0].innerHTML = area;
     document.getElementsByClassName('shape-perimeter')[0].innerHTML = perimeter;
 };
 
-ShapeProgram.prototype.DisplayShape = function (shapeObj, shapeColorParams, shapeParams)
-{
+ShapeProgram.prototype.DisplayShape = function (shapeObj, shapeColorParams, shapeParams) {
     let shape;
 
-    try
-    {
+    try {
         shape = new shapeObj(shapeColorParams, shapeParams);
     }
-    catch (e)
-    {
+    catch (e) {
         alert(e.message);
         return;
     }
